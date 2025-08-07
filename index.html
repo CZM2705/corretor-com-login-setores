@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corretor de Relatórios - Colégio Santa Úrsula</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Esconde elementos por padrão */
+        .hidden {
+            display: none;
+        }
+        .prose-custom { color: #374151; }
+        .prose-custom h3 { color: #1F2937; font-weight: 600; }
+        .prose-custom ul { list-style-position: inside; }
+        .prose-custom li::marker { color: #4f46e5; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- TELA DE LOGIN -->
+    <div id="login-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
+        <div class="max-w-md w-full text-center">
+            <h1 class="text-4xl font-bold text-gray-800">Corretor de Relatórios</h1>
+            <p class="text-2xl text-gray-600 mt-2">Colégio Santa Úrsula</p>
+            <p class="mt-6 text-gray-500">Por favor, faça login com sua conta institucional para continuar.</p>
+            <button id="login-button" class="mt-8 w-full inline-flex justify-center items-center gap-3 bg-white py-3 px-6 border border-gray-300 rounded-xl shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-100 transition-transform transform hover:scale-105">
+                <svg class="h-5 w-5" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 381.5 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 126 21.2 174 55.8L373.5 119.8C340.6 91.2 297.4 73.8 248 73.8c-102.3 0-185.2 82.9-185.2 182.2s82.9 182.2 185.2 182.2c107.4 0 166.9-77.2 172.9-119.8H248v-66.3h239.1c1.3 12.8 2.2 25.8 2.2 39.3z"></path></svg>
+                Entrar com Google
+            </button>
+            <p id="login-error" class="mt-4 text-red-500 font-medium hidden"></p>
+        </div>
+    </div>
+
+    <!-- APLICAÇÃO PRINCIPAL (Escondida por padrão) -->
+    <div id="app-screen" class="hidden">
+        <header class="bg-white shadow-sm">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name" class="font-semibold"></span>!</p>
+                <button id="logout-button" class="text-sm font-medium text-indigo-600 hover:text-indigo-800">Sair</button>
+            </div>
+        </header>
+
+        <div class="container mx-auto px-4 py-8 md:py-12">
+            <main class="max-w-4xl mx-auto">
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                    <div class="mb-6">
+                        <label for="api-key" class="block text-lg font-semibold text-gray-700 mb-2">Sua Chave de API do Gemini:</label>
+                        <input type="password" id="api-key" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="Cole sua chave de API aqui">
+                        <p class="text-sm text-gray-500 mt-2">Sua chave é salva no seu navegador. Obtenha sua chave gratuita em <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-indigo-600 hover:underline">aistudio.google.com</a>.</p>
+                    </div>
+
+                    <div class="border-t border-gray-200 my-6"></div>
+
+                    <div class="mb-6">
+                        <label for="report-text" class="block text-lg font-semibold text-gray-700 mb-2">Relatório do Aluno:</label>
+                        <textarea id="report-text" rows="12" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="Cole o texto do relatório aqui..."></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button id="analyze-button" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-transform transform hover:scale-105">
+                            Analisar Relatório
+                        </button>
+                    </div>
+                </div>
+
+                <div id="results-container" class="mt-10 bg-white p-6 md:p-8 rounded-2xl shadow-lg hidden">
+                    <div id="loading-indicator" class="text-center hidden">
+                        <div class="flex justify-center items-center">
+                            <svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span class="text-lg font-medium text-gray-600">Analisando... Por favor, aguarde.</span>
+                        </div>
+                    </div>
+                    <div id="suggestions" class="prose prose-custom max-w-none"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Importação dos Módulos do Firebase -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+      // --- INÍCIO DA CONFIGURAÇÃO ---
+
+      // Cole aqui a configuração do Firebase que você copiou
+      const firebaseConfig = {
+        apiKey: "AIzaSyCXnO1ECasG1gfTJSH7HjOJ2ZatY0PRoYc",
+        authDomain: "corretor-santa-ursula.firebaseapp.com",
+        projectId: "corretor-santa-ursula",
+        storageBucket: "corretor-santa-ursula.firebasestorage.app",
+        messagingSenderId: "1013046303773",
+        appId: "1:1013046303773:web:70d2e482d01b75fece7af4"
+      };
+
+      // Domínio de e-mail permitido para acesso
+      const SCHOOL_DOMAIN = "colegiosantaursula.com.br"; // Se o domínio for outro, altere aqui.
+
+      // --- FIM DA CONFIGURAÇÃO ---
+
+
+      // Inicializa o Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const provider = new GoogleAuthProvider();
+
+      // Elementos da página
+      const loginScreen = document.getElementById('login-screen');
+      const appScreen = document.getElementById('app-screen');
+      const loginButton = document.getElementById('login-button');
+      const logoutButton = document.getElementById('logout-button');
+      const userNameSpan = document.getElementById('user-name');
+      const loginError = document.getElementById('login-error');
+      
+      const analyzeButton = document.getElementById('analyze-button');
+      const reportText = document.getElementById('report-text');
+      const apiKeyInput = document.getElementById('api-key');
+      const resultsContainer = document.getElementById('results-container');
+      const loadingIndicator = document.getElementById('loading-indicator');
+      const suggestionsDiv = document.getElementById('suggestions');
+
+      // Função principal que gerencia o estado de login
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // Usuário está logado
+          const userEmail = user.email;
+          const userDomain = userEmail.split('@')[1];
+
+          if (userDomain === SCHOOL_DOMAIN) {
+            // Se o domínio do e-mail for o correto, mostra a aplicação
+            loginScreen.classList.add('hidden');
+            appScreen.classList.remove('hidden');
+            userNameSpan.textContent = user.displayName || user.email;
+            
+            // Carrega a chave da API do Gemini salva no navegador
+            const savedApiKey = localStorage.getItem(`geminiApiKey_${user.uid}`);
+            if (savedApiKey) {
+                apiKeyInput.value = savedApiKey;
+            }
+          } else {
+            // Se o domínio for incorreto, desloga o usuário e mostra erro
+            loginError.textContent = "Acesso permitido apenas para contas do colégio.";
+            loginError.classList.remove('hidden');
+            signOut(auth);
+          }
+        } else {
+          // Usuário não está logado, mostra a tela de login
+          loginScreen.classList.remove('hidden');
+          appScreen.classList.add('hidden');
+        }
+      });
+
+      // Evento do botão de login
+      loginButton.addEventListener('click', () => {
+        loginError.classList.add('hidden'); // Esconde erros antigos
+        signInWithPopup(auth, provider)
+          .catch((error) => {
+            console.error("Erro no login:", error);
+            loginError.textContent = "Ocorreu um erro durante o login. Tente novamente.";
+            loginError.classList.remove('hidden');
+          });
+      });
+
+      // Evento do botão de logout
+      logoutButton.addEventListener('click', () => {
+        signOut(auth);
+      });
+
+      // Evento do botão de analisar
+      analyzeButton.addEventListener('click', async () => {
+        const apiKey = apiKeyInput.value.trim();
+        const text = reportText.value.trim();
+
+        if (!apiKey) {
+            alert('Por favor, insira sua Chave de API do Gemini.');
+            return;
+        }
+        if (!text) {
+            alert('Por favor, insira o texto do relatório para análise.');
+            return;
+        }
+
+        // Salva a chave da API no navegador para uso futuro
+        if (auth.currentUser) {
+            localStorage.setItem(`geminiApiKey_${auth.currentUser.uid}`, apiKey);
+        }
+
+        resultsContainer.classList.remove('hidden');
+        loadingIndicator.classList.remove('hidden');
+        suggestionsDiv.innerHTML = '';
+
+        const prompt = `
+            Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
+            Sua análise deve focar nos seguintes pontos:
+            1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
+            2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
+            3.  **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
+            4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
+            5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+            Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
+            Texto para análise:
+            ---
+            ${text}
+            ---
+        `;
+        
+        try {
+            const suggestions = await callGemini(prompt, apiKey);
+            displaySuggestions(suggestions);
+        } catch (error) {
+            console.error('Error calling Gemini API:', error);
+            suggestionsDiv.innerHTML = '<p class="text-red-500">Ocorreu um erro. Verifique se sua chave de API está correta e tente novamente.</p>';
+        } finally {
+            loadingIndicator.classList.add('hidden');
+        }
+      });
+
+      async function callGemini(prompt, apiKey) {
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }] })
+        });
+        if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
+        const result = await response.json();
+        if (result.candidates && result.candidates.length > 0) {
+            return result.candidates[0].content.parts[0].text;
+        } else {
+            throw new Error("Resposta inválida da API do Gemini.");
+        }
+      }
+      
+      function basicMarkdownToHtml(md) {
+        md = md.replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mb-2 mt-4">$1</h3>');
+        md = md.replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mb-3 mt-5">$1</h2>');
+        md = md.replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-4 mt-6">$1</h1>');
+        md = md.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        md = md.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        md = md.replace(/^\* (.*$)/gim, '<li class="mb-1 ml-4">$1</li>');
+        md = md.replace(/((<li.*<\/li>\s*)+)/g, '<ul>$1</ul>');
+        md = md.replace(/\n\n/g, '</p><p class="mb-4">');
+        md = '<p class="mb-4">' + md + '</p>';
+        md = md.replace(/<p class="mb-4">\s*<\/p>/g, '');
+        md = md.replace(/<\/ul><\/p>/g, '</ul>');
+        md = md.replace(/<p class="mb-4"><h/g, '<h');
+        md = md.replace(/<\/h3><\/p>/g, '</h3>');
+        return md;
+      }
+
+      function displaySuggestions(suggestionsText) {
+        suggestionsDiv.innerHTML = basicMarkdownToHtml(suggestionsText);
+      }
+    </script>
+</body>
+</html>
