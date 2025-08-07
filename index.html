@@ -198,13 +198,14 @@
         suggestionsDiv.innerHTML = '';
 
         const prompt = `
-            Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
+            Você é um assistente para professores. Analise o seguinte relatório de um aluno de fundamental anos finais que cursa currículo internacional com aulas de ciências, matemática e perspectivas globais em língua inglesa e forneça sugestões construtivas.
             Sua análise deve focar nos seguintes pontos:
-            1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
+            1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros, observando a norma culta da língua portuguesa.
             2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
-            3.  **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
-            4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
-            5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+            3.  **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais, o relatório precisa ser escrito referindo-se ao passado.
+            4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso em formato impessoal.
+            5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório, explanando como o professor age para incentivar o desenvolvimento do aluno em pontuações negativas.
+            6.  **Estrutura do texto:** Escrever no formato sanduíche, alternando pontuações positivas e negativas. 
             Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
             Texto para análise:
             ---
@@ -262,3 +263,4 @@
     </script>
 </body>
 </html>
+
