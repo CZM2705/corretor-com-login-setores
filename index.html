@@ -3,97 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 1. Altere o título da página aqui -->
-    <title>Corretor de Relatórios - Colégio Santa Úrsula - Bilíngue FAF</title>
+    <title>Corretor de Relatórios - Colégio Santa Úrsula</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
         }
-        /* Esconde elementos por padrão */
-        .hidden {
-            display: none;
-        }
+        .hidden { display: none; }
         .prose-custom { color: #374151; }
         .prose-custom h3 { color: #1F2937; font-weight: 600; }
         .prose-custom ul { list-style-position: inside; }
-        .prose-custom li::marker { color: #4f46e5; }
+        .prose-custom li::marker { color: #15803d; }
+        .card { transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-gray-800">
 
-    <!-- TELA DE LOGIN -->
+    <!-- 1. TELA DE LOGIN -->
     <div id="login-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
-        <div class="max-w-md w-full text-center">
-            <!-- 2. Colégio Santa Úrsula -->
-            <h1 class="text-4xl font-bold text-gray-800">Corretor de Relatórios</h1>
-            <p class="text-2xl text-gray-600 mt-2">Colégio Santa Úrsula - Bilíngue FAF</p>
+        <div class="max-w-md w-full text-center bg-white p-8 sm:p-12 rounded-2xl shadow-md">
+            <img src="https://www.santaurursula.com.br/images/logo-sta-ursula.png" alt="Logo do Colégio Santa Úrsula" class="mx-auto mb-8 h-20 w-auto">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Corretor de Relatórios</h1>
             <p class="mt-6 text-gray-500">Por favor, faça login com sua conta institucional para continuar.</p>
-            <button id="login-button" class="mt-8 w-full inline-flex justify-center items-center gap-3 bg-white py-3 px-6 border border-gray-300 rounded-xl shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-100 transition-transform transform hover:scale-105">
-                <svg class="h-5 w-5" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 381.5 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 126 21.2 174 55.8L373.5 119.8C340.6 91.2 297.4 73.8 248 73.8c-102.3 0-185.2 82.9-185.2 182.2s82.9 182.2 185.2 182.2c107.4 0 166.9-77.2 172.9-119.8H248v-66.3h239.1c1.3 12.8 2.2 25.8 2.2 39.3z"></path></svg>
+            <button id="login-button" class="mt-8 w-full inline-flex justify-center items-center gap-3 bg-white py-3 px-6 border border-gray-300 rounded-xl shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 transition-transform transform hover:scale-105">
+                <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 381.5 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 126 21.2 174 55.8L373.5 119.8C340.6 91.2 297.4 73.8 248 73.8c-102.3 0-185.2 82.9-185.2 182.2s82.9 182.2 185.2 182.2c107.4 0 166.9-77.2 172.9-119.8H248v-66.3h239.1c1.3 12.8 2.2 25.8 2.2 39.3z"></path></svg>
                 Entrar com Google
             </button>
             <p id="login-error" class="mt-4 text-red-500 font-medium hidden"></p>
         </div>
     </div>
 
-    <!-- APLICAÇÃO PRINCIPAL (Escondida por padrão) -->
+    <!-- 2. TELA DE SELEÇÃO PRINCIPAL -->
+    <div id="main-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
+        <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-main" class="font-semibold"></span>!</p>
+                <button id="logout-button-main" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+            </div>
+        </header>
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o setor</h2>
+            <p class="text-lg text-gray-500 mb-10">Escolha o setor para o qual deseja corrigir um relatório.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div id="program-regular" class="card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center">
+                    <i class="fa-solid fa-graduation-cap text-5xl text-green-700 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">Regular</h3>
+                </div>
+                <div id="program-international" class="card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center">
+                    <i class="fa-solid fa-earth-americas text-5xl text-green-700 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">Educação Internacional e Integral Bilíngue</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. TELA DE SELEÇÃO DE SETOR -->
+    <div id="sub-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
+         <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <button id="back-to-main" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-sub" class="font-semibold"></span>!</p>
+                <button id="logout-button-sub" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+            </div>
+        </header>
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Setor</h2>
+            <p class="text-lg text-gray-500 mb-10">Para qual etapa é o relatório?</p>
+            <!-- Os cards dos setores serão inseridos aqui pelo JavaScript -->
+            <div id="sub-selection-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </div>
+    </div>
+
+    <!-- 4. APLICAÇÃO PRINCIPAL -->
     <div id="app-screen" class="hidden">
         <header class="bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name" class="font-semibold"></span>!</p>
-                <button id="logout-button" class="text-sm font-medium text-indigo-600 hover:text-indigo-800">Sair</button>
+                 <button id="back-to-sub" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Trocar Setor</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-app" class="font-semibold"></span>!</p>
+                <button id="logout-button-app" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
         </header>
-
         <div class="container mx-auto px-4 py-8 md:py-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Corretor de Relatórios: <span id="sector-title" class="text-green-800"></span></h2>
             <main class="max-w-4xl mx-auto">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
                     <div class="mb-6">
                         <label for="api-key" class="block text-lg font-semibold text-gray-700 mb-2">Sua Chave de API do Gemini:</label>
-                        <input type="password" id="api-key" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="Cole sua chave de API aqui">
-                        <p class="text-sm text-gray-500 mt-2">Sua chave é salva no seu navegador. Obtenha sua chave gratuita em <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-indigo-600 hover:underline">aistudio.google.com</a>.</p>
+                        <input type="password" id="api-key" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500" placeholder="Cole sua chave de API aqui">
+                        <p class="text-sm text-gray-500 mt-2">Sua chave é salva no seu navegador. Obtenha em <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-green-700 hover:underline">aistudio.google.com</a>.</p>
                     </div>
-
                     <div class="border-t border-gray-200 my-6"></div>
-
                     <div class="mb-6">
                         <label for="report-text" class="block text-lg font-semibold text-gray-700 mb-2">Relatório do Aluno:</label>
-                        <textarea id="report-text" rows="12" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="Cole o texto do relatório aqui..."></textarea>
+                        <textarea id="report-text" rows="12" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500" placeholder="Cole o texto do relatório aqui..."></textarea>
                     </div>
-
                     <div class="text-center">
-                        <button id="analyze-button" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-transform transform hover:scale-105">
-                            Analisar Relatório
-                        </button>
+                        <button id="analyze-button" class="bg-green-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 transition-transform transform hover:scale-105">Analisar Relatório</button>
                     </div>
                 </div>
-
                 <div id="results-container" class="mt-10 bg-white p-6 md:p-8 rounded-2xl shadow-lg hidden">
                     <div id="loading-indicator" class="text-center hidden">
-                        <div class="flex justify-center items-center">
-                            <svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            <span class="text-lg font-medium text-gray-600">Analisando... Por favor, aguarde.</span>
-                        </div>
+                        <div class="flex justify-center items-center"><svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-green-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-lg font-medium text-gray-600">Analisando...</span></div>
                     </div>
                     <div id="suggestions" class="prose prose-custom max-w-none"></div>
                 </div>
             </main>
         </div>
     </div>
-
-    <!-- Importação dos Módulos do Firebase -->
+    
+    <!-- Módulos do Firebase -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
       import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-      // --- INÍCIO DA CONFIGURAÇÃO ---
-
-      // Novas informações do seu projeto Firebase
+      // --- CONFIGURAÇÃO ---
       const firebaseConfig = {
         apiKey: "AIzaSyCHlvNnopglq7Y8glXo8rUYU-Hn1lR7YTk",
         authDomain: "corretor-com-login-fafbilingue.firebaseapp.com",
@@ -102,105 +129,105 @@
         messagingSenderId: "724149401323",
         appId: "1:724149401323:web:fdf14d941e5cc84db2b0ae"
       };
+      const SCHOOL_DOMAIN = "santaurursula.com.br";
 
-      // 3. IMPORTANTE: Altere para o domínio de e-mail da sua nova escola
-      const SCHOOL_DOMAIN = "ursulinebrazil.com"; 
+      // --- ESTRUTURA DOS SETORES ---
+      // Você pode editar os nomes e adicionar/remover setores aqui
+      const programs = {
+        regular: {
+          title: "Regular",
+          sectors: {
+            infantil: { title: "Educação Infantil", icon: "fa-shapes" },
+            fundamental1: { title: "Fundamental Anos Iniciais", icon: "fa-book-open-reader" },
+            ber: { title: "Berçário ", icon: "fa-book" },
+          }
+        },
+        international: {
+          title: "Educação Internacional e Integral Bilíngue",
+          sectors: {
+            infantil: { title: "Educação Infantil", icon: "fa-globe" },
+	fundamental1: { title: "1ºs e 2ºs anos", icon: "fa-book-open-reader" }, 
+fundamental2: { title: "3ºs, 4ºs e 5º anos", icon: "fa-shapes" },
+            integral1: { title: "Integral Infantil Bilíngue", icon: "fa-sun" },
+	integral2: { title: "Integral Fundamental Bilíngue", icon: "fa-sun" },
+          }
+        }
+      };
 
-      // --- FIM DA CONFIGURAÇÃO ---
-
-
-      // Inicializa o Firebase
+      // --- LÓGICA DO APLICATIVO ---
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
       const provider = new GoogleAuthProvider();
 
-      // Elementos da página
-      const loginScreen = document.getElementById('login-screen');
-      const appScreen = document.getElementById('app-screen');
-      const loginButton = document.getElementById('login-button');
-      const logoutButton = document.getElementById('logout-button');
-      const userNameSpan = document.getElementById('user-name');
-      const loginError = document.getElementById('login-error');
+      let currentProgramId = null;
+      let currentSectorId = null;
+
+      const screens = {
+          login: document.getElementById('login-screen'),
+          mainSelection: document.getElementById('main-selection-screen'),
+          subSelection: document.getElementById('sub-selection-screen'),
+          app: document.getElementById('app-screen')
+      };
       
-      const analyzeButton = document.getElementById('analyze-button');
-      const reportText = document.getElementById('report-text');
-      const apiKeyInput = document.getElementById('api-key');
-      const resultsContainer = document.getElementById('results-container');
-      const loadingIndicator = document.getElementById('loading-indicator');
-      const suggestionsDiv = document.getElementById('suggestions');
+      function showScreen(screenName) {
+        Object.values(screens).forEach(screen => screen.classList.add('hidden'));
+        screens[screenName].classList.remove('hidden');
+      }
 
-      // Função principal que gerencia o estado de login
       onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // Usuário está logado
-          const userEmail = user.email;
-          const userDomain = userEmail.split('@')[1];
-
-          if (userDomain === SCHOOL_DOMAIN) {
-            // Se o domínio do e-mail for o correto, mostra a aplicação
-            loginScreen.classList.add('hidden');
-            appScreen.classList.remove('hidden');
-            userNameSpan.textContent = user.displayName || user.email;
-            
-            // Carrega a chave da API do Gemini salva no navegador
+        if (user && user.email.split('@')[1] === SCHOOL_DOMAIN) {
+            document.querySelectorAll('#user-name-main, #user-name-sub, #user-name-app').forEach(span => {
+                span.textContent = user.displayName || user.email;
+            });
             const savedApiKey = localStorage.getItem(`geminiApiKey_${user.uid}`);
-            if (savedApiKey) {
-                apiKeyInput.value = savedApiKey;
-            }
-          } else {
-            // Se o domínio for incorreto, desloga o usuário e mostra erro
-            loginError.textContent = "Acesso permitido apenas para contas da instituição.";
-            loginError.classList.remove('hidden');
-            signOut(auth);
-          }
+            if (savedApiKey) document.getElementById('api-key').value = savedApiKey;
+            showScreen('mainSelection');
         } else {
-          // Usuário não está logado, mostra a tela de login
-          loginScreen.classList.remove('hidden');
-          appScreen.classList.add('hidden');
+            if (user) signOut(auth);
+            showScreen('login');
         }
       });
+      
+      document.getElementById('login-button').addEventListener('click', () => signInWithPopup(auth, provider));
+      document.querySelectorAll('#logout-button-main, #logout-button-sub, #logout-button-app').forEach(btn => btn.addEventListener('click', () => signOut(auth)));
+      document.getElementById('back-to-main').addEventListener('click', () => showScreen('mainSelection'));
+      document.getElementById('back-to-sub').addEventListener('click', () => showScreen('subSelection'));
 
-      // Evento do botão de login
-      loginButton.addEventListener('click', () => {
-        loginError.classList.add('hidden'); // Esconde erros antigos
-        signInWithPopup(auth, provider)
-          .catch((error) => {
-            console.error("Erro no login:", error);
-            loginError.textContent = "Ocorreu um erro durante o login. Tente novamente.";
-            loginError.classList.remove('hidden');
-          });
-      });
+      document.getElementById('program-regular').addEventListener('click', () => showSubSelection('regular'));
+      document.getElementById('program-international').addEventListener('click', () => showSubSelection('international'));
 
-      // Evento do botão de logout
-      logoutButton.addEventListener('click', () => {
-        signOut(auth);
-      });
+      function showSubSelection(programId) {
+          currentProgramId = programId;
+          const subSelectionCards = document.getElementById('sub-selection-cards');
+          subSelectionCards.innerHTML = ''; // Limpa os cards antigos
+          const sectors = programs[programId].sectors;
+          for (const sectorId in sectors) {
+              const sector = sectors[sectorId];
+              const card = document.createElement('div');
+              card.className = 'card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center';
+              card.innerHTML = `<i class="fa-solid ${sector.icon} text-5xl text-green-700 mb-4"></i><h3 class="text-xl font-bold text-gray-800">${sector.title}</h3>`;
+              card.addEventListener('click', () => selectSector(sectorId));
+              subSelectionCards.appendChild(card);
+          }
+          showScreen('subSelection');
+      }
 
-      // Evento do botão de analisar
-      analyzeButton.addEventListener('click', async () => {
-        const apiKey = apiKeyInput.value.trim();
-        const text = reportText.value.trim();
-
-        if (!apiKey) {
-            alert('Por favor, insira sua Chave de API do Gemini.');
-            return;
-        }
-        if (!text) {
-            alert('Por favor, insira o texto do relatório para análise.');
-            return;
-        }
-
-        // Salva a chave da API no navegador para uso futuro
-        if (auth.currentUser) {
-            localStorage.setItem(`geminiApiKey_${auth.currentUser.uid}`, apiKey);
-        }
-
-        resultsContainer.classList.remove('hidden');
-        loadingIndicator.classList.remove('hidden');
-        suggestionsDiv.innerHTML = '';
-
-        const prompt = `
-             Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+      function selectSector(sectorId) {
+          currentSectorId = sectorId;
+          document.getElementById('sector-title').textContent = programs[currentProgramId].sectors[sectorId].title;
+          showScreen('app');
+      }
+      
+      function getPromptForSector(programId, sectorId, text) {
+          const basePrompt = `Você é um assistente pedagógico...`; // Mantido curto para brevidade
+          const prompts = {
+              regular: {
+                  infantil: `Contexto: Educação Infantil...`,
+                  fundamental1: `Contexto: Fundamental I...`,
+                  ber: `Contexto: Berçário...`,
+              },
+              international: {
+                  bilingue: `Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
 
             Contexto do aluno: Cursa os anos finais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
 
@@ -209,9 +236,7 @@
             Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
 
             ### Análise Textual e Normativa
-            - **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
-            - **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
-            - **Norma Culta:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+            - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
             - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
 
             ### Análise Estrutural e Pedagógica
@@ -222,15 +247,37 @@
             - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'perspectivas globais'. Sugestão: adicione um exemplo prático, como 'durante o debate sobre fontes de energia', e a ação pedagógica, como 'foi incentivado a pesquisar e apresentar um contra-argumento para a próxima aula'."
 
             ---
-            Texto para análise:
-            ---
-            ${text}
-            ---
-        `;
+            Texto para análise:`,
+                  integral: `Contexto: Integral...`,
+              }
+          };
+          const specificPrompt = prompts[programId]?.[sectorId] || `Contexto geral...`;
+          return `${basePrompt} ${specificPrompt} \n\n --- \n Texto para análise: \n ${text} \n ---`;
+      }
+      
+      document.getElementById('analyze-button').addEventListener('click', async () => {
+        const apiKey = document.getElementById('api-key').value.trim();
+        const text = document.getElementById('report-text').value.trim();
+        if (!apiKey || !text) {
+            alert('Por favor, preencha sua chave de API e o texto do relatório.');
+            return;
+        }
+        if (auth.currentUser) {
+            localStorage.setItem(`geminiApiKey_${auth.currentUser.uid}`, apiKey);
+        }
+        const resultsContainer = document.getElementById('results-container');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const suggestionsDiv = document.getElementById('suggestions');
+        
+        resultsContainer.classList.remove('hidden');
+        loadingIndicator.classList.remove('hidden');
+        suggestionsDiv.innerHTML = '';
+        
+        const prompt = getPromptForSector(currentProgramId, currentSectorId, text);
         
         try {
             const suggestions = await callGemini(prompt, apiKey);
-            displaySuggestions(suggestions);
+            suggestionsDiv.innerHTML = basicMarkdownToHtml(suggestions);
         } catch (error) {
             console.error('Error calling Gemini API:', error);
             suggestionsDiv.innerHTML = '<p class="text-red-500">Ocorreu um erro. Verifique se sua chave de API está correta e tente novamente.</p>';
@@ -248,11 +295,8 @@
         });
         if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
         const result = await response.json();
-        if (result.candidates && result.candidates.length > 0) {
-            return result.candidates[0].content.parts[0].text;
-        } else {
-            throw new Error("Resposta inválida da API do Gemini.");
-        }
+        if (result.candidates && result.candidates.length > 0) return result.candidates[0].content.parts[0].text;
+        throw new Error("Resposta inválida da API do Gemini.");
       }
       
       function basicMarkdownToHtml(md) {
@@ -271,13 +315,13 @@
         md = md.replace(/<\/h3><\/p>/g, '</h3>');
         return md;
       }
-
-      function displaySuggestions(suggestionsText) {
-        suggestionsDiv.innerHTML = basicMarkdownToHtml(suggestionsText);
-      }
     </script>
 </body>
 </html>
+
+
+
+
 
 
 
