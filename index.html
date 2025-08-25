@@ -46,8 +46,8 @@
             </div>
         </header>
         <div class="text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o setor</h2>
-            <p class="text-lg text-gray-500 mb-10">Escolha o setor para o qual deseja corrigir um relatório.</p>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Programa</h2>
+            <p class="text-lg text-gray-500 mb-10">Escolha o programa para o qual deseja corrigir um relatório.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div id="program-regular" class="card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center">
                     <i class="fa-solid fa-graduation-cap text-5xl text-green-700 mb-4"></i>
@@ -74,7 +74,7 @@
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Setor</h2>
             <p class="text-lg text-gray-500 mb-10">Para qual etapa é o relatório?</p>
             <!-- Os cards dos setores serão inseridos aqui pelo JavaScript -->
-            <div id="sub-selection-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+            <div id="sub-selection-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </div>
     </div>
 
@@ -121,6 +121,7 @@
       import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
       // --- CONFIGURAÇÃO ---
+      // Usando a configuração do projeto "fafbilingue"
       const firebaseConfig = {
         apiKey: "AIzaSyCHlvNnopglq7Y8glXo8rUYU-Hn1lR7YTk",
         authDomain: "corretor-com-login-fafbilingue.firebaseapp.com",
@@ -129,27 +130,28 @@
         messagingSenderId: "724149401323",
         appId: "1:724149401323:web:fdf14d941e5cc84db2b0ae"
       };
-      const SCHOOL_DOMAIN = "santaurursula.com.br";
+      const SCHOOL_DOMAIN = "santaurursula.com.br"; // Verifique se este é o domínio correto
 
       // --- ESTRUTURA DOS SETORES ---
-      // Você pode editar os nomes e adicionar/remover setores aqui
+      // Edite os títulos e prompts conforme necessário
       const programs = {
         regular: {
           title: "Regular",
           sectors: {
-            infantil: { title: "Educação Infantil", icon: "fa-shapes" },
-            fundamental1: { title: "Fundamental Anos Iniciais", icon: "fa-book-open-reader" },
-            ber: { title: "Berçário ", icon: "fa-book" },
+            bercario: { title: "Berçário", icon: "fa-baby-carriage" },
+            infantil1e2: { title: "Infantil 1 e 2", icon: "fa-shapes" },
+            infantil3: { title: "Infantil 3", icon: "fa-puzzle-piece" },
+            fundamentalIniciais: { title: "Fundamental Anos Iniciais", icon: "fa-book-open-reader" },
           }
         },
         international: {
           title: "Educação Internacional e Integral Bilíngue",
           sectors: {
-            infantil: { title: "Educação Infantil", icon: "fa-globe" },
-	fundamental1: { title: "1ºs e 2ºs anos", icon: "fa-book-open-reader" }, 
-fundamental2: { title: "3ºs, 4ºs e 5º anos", icon: "fa-shapes" },
-            integral1: { title: "Integral Infantil Bilíngue", icon: "fa-sun" },
-	integral2: { title: "Integral Fundamental Bilíngue", icon: "fa-sun" },
+            infantilRegInt: { title: "Infantil - Regular e Integral", icon: "fa-globe" },
+            fundamental1e2: { title: "Fund. Anos Iniciais - 1º e 2º ano", icon: "fa-pencil" },
+            fundamental3a5: { title: "Fund. Anos Iniciais - 3º a 5º ano", icon: "fa-book-atlas" },
+            fundamentalIntegral: { title: "Fund. Anos Iniciais - Integral", icon: "fa-sun" },
+            fundamentalFinaisIntegral: { title: "Fund. Anos Finais - Integral", icon: "fa-atom" },
           }
         }
       };
@@ -201,11 +203,14 @@ fundamental2: { title: "3ºs, 4ºs e 5º anos", icon: "fa-shapes" },
           const subSelectionCards = document.getElementById('sub-selection-cards');
           subSelectionCards.innerHTML = ''; // Limpa os cards antigos
           const sectors = programs[programId].sectors;
+          const gridCols = Object.keys(sectors).length > 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2';
+          subSelectionCards.className = `grid grid-cols-1 md:grid-cols-2 ${gridCols} gap-6`;
+
           for (const sectorId in sectors) {
               const sector = sectors[sectorId];
               const card = document.createElement('div');
-              card.className = 'card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center';
-              card.innerHTML = `<i class="fa-solid ${sector.icon} text-5xl text-green-700 mb-4"></i><h3 class="text-xl font-bold text-gray-800">${sector.title}</h3>`;
+              card.className = 'card cursor-pointer bg-white p-6 rounded-2xl shadow-md text-center flex flex-col items-center justify-center';
+              card.innerHTML = `<i class="fa-solid ${sector.icon} text-4xl text-green-700 mb-4"></i><h3 class="text-lg font-bold text-gray-800">${sector.title}</h3>`;
               card.addEventListener('click', () => selectSector(sectorId));
               subSelectionCards.appendChild(card);
           }
@@ -219,16 +224,33 @@ fundamental2: { title: "3ºs, 4ºs e 5º anos", icon: "fa-shapes" },
       }
       
       function getPromptForSector(programId, sectorId, text) {
-          const basePrompt = `Você é um assistente pedagógico...`; // Mantido curto para brevidade
+          const basePrompt = `Você é um assistente pedagógico especializado em análise de relatórios escolares...`; // Mantido curto para brevidade
+          
+          // Personalize os prompts para cada setor aqui
           const prompts = {
               regular: {
-                  infantil: `Contexto: Educação Infantil...`,
-                  fundamental1: `Contexto: Fundamental I...`,
-                  ber: `Contexto: Berçário...`,
+                  bercario: `Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
+                Sua análise deve focar nos seguintes pontos:
+                1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
+                2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
+                3.  **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
+                4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
+                5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+
+                Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
+
+                Texto para análise:
+`,
+                  infantil1e2: `Contexto: Infantil 1 e 2...`,
+                  infantil3: `Contexto: Infantil 3...`,
+                  fundamentalIniciais: `Contexto: Fundamental Anos Iniciais...`
               },
               international: {
-                  bilingue: `Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
-
+                  infantilRegInt: `Contexto: Infantil - Regular e Integral...`,
+                  fundamental1e2: `Contexto: Fundamental Anos Iniciais - 1º e 2º ano...`,
+                  fundamental3a5: `Contexto: Fundamental Anos Iniciais - 3º a 5º ano...`,
+                  fundamentalIntegral: `Contexto: Fundamental Anos Iniciais - Integral...`,
+                  fundamentalFinaisIntegral: `Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
             Contexto do aluno: Cursa os anos finais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
 
             PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
@@ -238,6 +260,8 @@ fundamental2: { title: "3ºs, 4ºs e 5º anos", icon: "fa-shapes" },
             ### Análise Textual e Normativa
             - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
             - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+	-**Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+-**Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
 
             ### Análise Estrutural e Pedagógica
             - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
@@ -248,7 +272,6 @@ fundamental2: { title: "3ºs, 4ºs e 5º anos", icon: "fa-shapes" },
 
             ---
             Texto para análise:`,
-                  integral: `Contexto: Integral...`,
               }
           };
           const specificPrompt = prompts[programId]?.[sectorId] || `Contexto geral...`;
@@ -318,6 +341,10 @@ fundamental2: { title: "3ºs, 4ºs e 5º anos", icon: "fa-shapes" },
     </script>
 </body>
 </html>
+
+
+
+
 
 
 
