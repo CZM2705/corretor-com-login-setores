@@ -81,7 +81,7 @@
     <div id="sector-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
          <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <button id="back-to-subgroup" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+                <button id="back-to-previous-from-sector" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
                 <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
                 <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
@@ -232,13 +232,19 @@
       document.querySelectorAll('.logout-button').forEach(btn => btn.addEventListener('click', () => signOut(auth)));
       
       document.getElementById('back-to-main').addEventListener('click', () => showScreen('mainSelection'));
-      document.getElementById('back-to-subgroup').addEventListener('click', () => showSubgroupSelection(currentProgramId));
-      document.getElementById('back-to-sector-selection').addEventListener('click', () => {
-          if (programs[currentProgramId].subgroups) {
+      
+      // Lógica do botão Voltar na tela de seleção de setor
+      document.getElementById('back-to-previous-from-sector').addEventListener('click', () => {
+          if (currentSubgroupId) {
               showSubgroupSelection(currentProgramId);
           } else {
-              showSectorSelection(currentProgramId);
+              showScreen('mainSelection');
           }
+      });
+
+      // Lógica do botão Voltar na tela da aplicação
+      document.getElementById('back-to-sector-selection').addEventListener('click', () => {
+          showSectorSelection(currentProgramId, currentSubgroupId);
       });
 
       document.getElementById('program-regular').addEventListener('click', () => showSectorSelection('regular'));
@@ -292,18 +298,21 @@
           const basePrompt = `Você é um assistente pedagógico...`;
           
           let specificPrompt = `Contexto geral...`;
-          if (subgroupId) {
-              // international
-              specificPrompt = programs[programId]?.subgroups?.[subgroupId]?.sectors?.[sectorId]?.prompt || specificPrompt;
-          } else {
-              // regular
-              specificPrompt = programs[programId]?.sectors?.[sectorId]?.prompt || specificPrompt;
+          // Lógica para buscar o prompt correto na estrutura aninhada
+          try {
+              if (subgroupId) {
+                  specificPrompt = programs[programId].subgroups[subgroupId].sectors[sectorId].prompt;
+              } else {
+                  specificPrompt = programs[programId].sectors[sectorId].prompt;
+              }
+          } catch (e) {
+              console.warn("Prompt não encontrado para a seleção, usando prompt geral.");
           }
-
-          // Você vai adicionar os prompts na estrutura 'programs'
+          
+          // Adicione os prompts na estrutura 'programs'
           // Ex: programs.regular.sectors.bercario.prompt = `Seu prompt aqui`;
           
-          return `${basePrompt} ${specificPrompt} \n\n --- \n Texto para análise: \n ${text} \n ---`;
+          return `${basePrompt} ${specificPrompt || 'Contexto geral...'} \n\n --- \n Texto para análise: \n ${text} \n ---`;
       }
       
       document.getElementById('analyze-button').addEventListener('click', async () => {
@@ -324,8 +333,7 @@
         loadingIndicator.classList.remove('hidden');
         suggestionsDiv.innerHTML = '';
         
-        // Simulação de prompt, a lógica real precisa ser implementada em getPromptForSector
-        const prompt = `Analisando relatório para ${programs[currentProgramId].title} / ${currentSectorId}: ${text}`;
+        const prompt = getPromptForSector(currentProgramId, currentSubgroupId, currentSectorId, text);
         
         try {
             const suggestions = await callGemini(prompt, apiKey);
