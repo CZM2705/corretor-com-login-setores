@@ -147,25 +147,28 @@
       };
       const SCHOOL_DOMAIN = "ursulinebrazil.com"; // Verifique se este é o domínio correto
 
-      // --- ESTRUTURA DOS SETORES ---
+      // --- ESTRUTURA DOS SETORES E PROMPTS ---
       const programs = {
         regular: {
           title: "Regular",
           sectors: {
-            bercario: { title: "Berçário",
-                        icon: "fa-baby-carriage",
-                        prompt:  Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
-            Sua análise deve focar nos seguintes pontos:
-            1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
-            2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
-            3.  **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
-            4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
-            5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
-            Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
-            Texto para análise:},
-            infantil1e2: { title: "Infantil 1 e 2", icon: "fa-shapes" },
-            infantil3: { title: "Infantil 3", icon: "fa-puzzle-piece" },
-            fundamentalIniciais: { title: "Fundamental Anos Iniciais", icon: "fa-book-open-reader" },
+            bercario: { 
+                title: "Berçário", 
+                icon: "fa-baby-carriage",
+                prompt: `
+                    Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
+                    Sua análise deve focar nos seguintes pontos:
+                    1. **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
+                    2. **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
+                    3. **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
+                    4. **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
+                    5. **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+                    Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
+                `
+            },
+            infantil1e2: { title: "Infantil 1 e 2", icon: "fa-shapes", prompt: `PROMPT PARA INFANTIL 1 E 2` },
+            infantil3: { title: "Infantil 3", icon: "fa-puzzle-piece", prompt: `PROMPT PARA INFANTIL 3` },
+            fundamentalIniciais: { title: "Fundamental Anos Iniciais", icon: "fa-book-open-reader", prompt: `PROMPT PARA FUNDAMENTAL ANOS INICIAIS` },
           }
         },
         international: {
@@ -175,49 +178,47 @@
               title: "Currículo de inglês",
               icon: "fa-language",
               sectors: {
-                bercario3infantil: { title: "Berçário 3 e Infantil regular", icon: "fa-child" },
-                anos1e2: { title: "1º e 2º ano", icon: "fa-pencil" },
-                anos3a5: { title: "3º a 5º ano - Digital Literacy", icon: "fa-laptop-code" },
+                bercario3infantil: { title: "Berçário 3 e Infantil regular", icon: "fa-child", prompt: `PROMPT PARA BERCÁRIO 3 E INFANTIL REGULAR` },
+                anos1e2: { title: "1º e 2º ano", icon: "fa-pencil", prompt: `PROMPT PARA 1º E 2º ANO` },
+                anos3a5: { title: "3º a 5º ano - Digital Literacy", icon: "fa-laptop-code", prompt: `PROMPT PARA 3º A 5º ANO` },
               }
             },
             cambridge: {
               title: "Currículo Cambridge International",
               icon: "fa-book-atlas",
               sectors: {
-                earlyYears: { title: "Early Years", icon: "fa-seedling" },
-                primary: { title: "Primary - 1st to 5th", icon: "fa-school" },
-                lowerSecondary: { title: "Lower Secondary - 6th to 9th", 
-                                  icon: "fa-user-graduate",
-                                  prompt: Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
-            Contexto do aluno: Cursa os anos finais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
-            PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
-            Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
-
-            ### Análise Textual e Normativa
-            - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
-            - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-          	-**Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
-            -**Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
-
-            ### Análise Estrutural e Pedagógica
-            - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
-            - **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
-                1. Cita um **exemplo prático** que justifique a observação.
-                2. Descreve a **ação do professor** para incentivar o desenvolvimento.
-            - **Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'perspectivas globais'. Sugestão: adicione um exemplo prático, como 'durante o debate sobre fontes de energia', e a ação pedagógica, como 'foi incentivado a pesquisar e apresentar um contra-argumento para a próxima aula'."
-
-            ---
-            Texto para análise:`,
- },
+                earlyYears: { title: "Early Years", icon: "fa-seedling", prompt: `PROMPT PARA EARLY YEARS` },
+                primary: { title: "Primary - 1st to 5th", icon: "fa-school", prompt: `PROMPT PARA PRIMARY` },
+                lowerSecondary: { 
+                    title: "Lower Secondary - 6th to 9th", 
+                    icon: "fa-user-graduate",
+                    prompt: `
+                        Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+                        Contexto do aluno: Cursa os anos finais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
+                        PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+                        Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                        ### Análise Textual e Normativa
+                        - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                        - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+                        - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+                        ### Análise Estrutural e Pedagógica
+                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
+                        - **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+                        1. Cita um **exemplo prático** que justifique a observação.
+                        2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+                        - **Se um desses requisitos faltar, aponte de forma específica.** Exemplo: "O texto menciona que o aluno tem dificuldade em 'perspectivas globais'. Sugestão: adicione um exemplo prático, como 'durante o debate sobre fontes de energia', e a ação pedagógica, como 'foi incentivado a pesquisar e apresentar um contra-argumento para a próxima aula'."
+                    `
+                },
               }
             },
             integral: {
               title: "Integral e atividades extras",
               icon: "fa-clock",
               sectors: {
-                integralProf: { title: "Integral - professores de sala", icon: "fa-chalkboard-user" },
-                robotica: { title: "Robótica", icon: "fa-robot" },
-                gastronomia: { title: "Gastronomia", icon: "fa-utensils" },
+                integralProf: { title: "Integral - professores de sala", icon: "fa-chalkboard-user", prompt: `PROMPT PARA INTEGRAL` },
+                robotica: { title: "Robótica", icon: "fa-robot", prompt: `PROMPT PARA ROBÓTICA` },
+                gastronomia: { title: "Gastronomia", icon: "fa-utensils", prompt: `PROMPT PARA GASTRONOMIA` },
               }
             }
           }
@@ -255,17 +256,24 @@
             if (savedApiKey) document.getElementById('api-key').value = savedApiKey;
             showScreen('mainSelection');
         } else {
-            if (user) signOut(auth);
+            if (user) {
+                document.getElementById('login-error').textContent = "Acesso permitido apenas para contas da instituição.";
+                document.getElementById('login-error').classList.remove('hidden');
+                signOut(auth);
+            }
             showScreen('login');
         }
       });
       
-      document.getElementById('login-button').addEventListener('click', () => signInWithPopup(auth, provider));
+      document.getElementById('login-button').addEventListener('click', () => {
+          document.getElementById('login-error').classList.add('hidden');
+          signInWithPopup(auth, provider).catch(err => console.error(err));
+      });
+      
       document.querySelectorAll('.logout-button').forEach(btn => btn.addEventListener('click', () => signOut(auth)));
       
       document.getElementById('back-to-main').addEventListener('click', () => showScreen('mainSelection'));
       
-      // Lógica do botão Voltar na tela de seleção de setor
       document.getElementById('back-to-previous-from-sector').addEventListener('click', () => {
           if (currentSubgroupId) {
               showSubgroupSelection(currentProgramId);
@@ -274,7 +282,6 @@
           }
       });
 
-      // Lógica do botão Voltar na tela da aplicação
       document.getElementById('back-to-sector-selection').addEventListener('click', () => {
           showSectorSelection(currentProgramId, currentSubgroupId);
       });
@@ -327,10 +334,17 @@
       }
       
       function getPromptForSector(programId, subgroupId, sectorId, text) {
-          const basePrompt = `Você é um assistente pedagógico...`;
-          
-          let specificPrompt = `Contexto geral...`;
-          // Lógica para buscar o prompt correto na estrutura aninhada
+          const basePrompt = `
+              Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
+                    Sua análise deve focar nos seguintes pontos:
+                    1. **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
+                    2. **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
+                    3. **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
+                    4. **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
+                    5. **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+                    Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
+             `
+          let specificPrompt = 'Contexto geral...';
           try {
               if (subgroupId) {
                   specificPrompt = programs[programId].subgroups[subgroupId].sectors[sectorId].prompt;
@@ -338,11 +352,8 @@
                   specificPrompt = programs[programId].sectors[sectorId].prompt;
               }
           } catch (e) {
-              console.warn("Prompt não encontrado para a seleção, usando prompt geral.");
+              console.warn("Prompt não encontrado para a seleção, usando prompt geral.", e);
           }
-          
-          // Adicione os prompts na estrutura 'programs'
-          // Ex: programs.regular.sectors.bercario.prompt = `Seu prompt aqui`;
           
           return `${basePrompt} ${specificPrompt || 'Contexto geral...'} \n\n --- \n Texto para análise: \n ${text} \n ---`;
       }
@@ -410,5 +421,3 @@
     </script>
 </body>
 </html>
-
-
