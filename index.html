@@ -37,17 +37,17 @@
         </div>
     </div>
 
-    <!-- 2. TELA DE SELEÇÃO PRINCIPAL -->
+    <!-- 2. TELA DE SELEÇÃO PRINCIPAL (PROGRAMA) -->
     <div id="main-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
         <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-main" class="font-semibold"></span>!</p>
-                <button id="logout-button-main" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
+                <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
         </header>
         <div class="text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Setor</h2>
-            <p class="text-lg text-gray-500 mb-10">Escolha o setor para o qual deseja corrigir um relatório.</p>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Programa</h2>
+            <p class="text-lg text-gray-500 mb-10">Escolha o programa para o qual deseja corrigir um relatório.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div id="program-regular" class="card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center">
                     <i class="fa-solid fa-graduation-cap text-5xl text-green-700 mb-4"></i>
@@ -61,30 +61,46 @@
         </div>
     </div>
 
-    <!-- 3. TELA DE SELEÇÃO DE SETOR -->
-    <div id="sub-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
+    <!-- 3. TELA DE SELEÇÃO DE SUBGRUPO -->
+    <div id="subgroup-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
          <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
                 <button id="back-to-main" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
-                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-sub" class="font-semibold"></span>!</p>
-                <button id="logout-button-sub" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
+                <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
         </header>
         <div class="text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Setor</h2>
-            <p class="text-lg text-gray-500 mb-10">Para qual etapa é o relatório?</p>
-            <!-- Os cards dos setores serão inseridos aqui pelo JavaScript -->
-            <div id="sub-selection-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Currículo</h2>
+            <p class="text-lg text-gray-500 mb-10">Para qual área é o relatório?</p>
+            <div id="subgroup-selection-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </div>
     </div>
 
-    <!-- 4. APLICAÇÃO PRINCIPAL -->
+    <!-- 4. TELA DE SELEÇÃO DE SETOR FINAL -->
+    <div id="sector-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
+         <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <button id="back-to-subgroup" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
+                <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+            </div>
+        </header>
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione a Turma</h2>
+            <p class="text-lg text-gray-500 mb-10">Para qual turma/matéria é o relatório?</p>
+            <div id="sector-selection-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </div>
+
+
+    <!-- 5. APLICAÇÃO PRINCIPAL -->
     <div id="app-screen" class="hidden">
         <header class="bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                 <button id="back-to-sub" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Trocar Setor</button>
-                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-app" class="font-semibold"></span>!</p>
-                <button id="logout-button-app" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+                 <button id="back-to-sector-selection" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Trocar Turma</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
+                <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
         </header>
         <div class="container mx-auto px-4 py-8 md:py-12">
@@ -121,7 +137,6 @@
       import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
       // --- CONFIGURAÇÃO ---
-      // Usando a configuração do projeto "fafbilingue"
       const firebaseConfig = {
         apiKey: "AIzaSyCHlvNnopglq7Y8glXo8rUYU-Hn1lR7YTk",
         authDomain: "corretor-com-login-fafbilingue.firebaseapp.com",
@@ -133,7 +148,6 @@
       const SCHOOL_DOMAIN = "ursulinebrazil.com"; // Verifique se este é o domínio correto
 
       // --- ESTRUTURA DOS SETORES ---
-      // Edite os títulos e prompts conforme necessário
       const programs = {
         regular: {
           title: "Regular",
@@ -146,12 +160,34 @@
         },
         international: {
           title: "Educação Internacional e Integral Bilíngue",
-          sectors: {
-            infantilRegInt: { title: "Infantil - Regular e Integral", icon: "fa-globe" },
-            fundamental1e2: { title: "Fund. Anos Iniciais - 1ºs e 2ºs anos", icon: "fa-pencil" },
-            fundamental3a5: { title: "Fund. Anos Iniciais - 3ºs a 5ºs anos", icon: "fa-book-atlas" },
-            fundamentalIntegral: { title: "Fund. Anos Iniciais - Integral", icon: "fa-sun" },
-            fundamentalFinaisIntegral: { title: "Fund. Anos Finais - Integral", icon: "fa-atom" },
+          subgroups: {
+            english: {
+              title: "Currículo de inglês",
+              icon: "fa-language",
+              sectors: {
+                bercario3infantil: { title: "Berçário 3 e Infantil regular", icon: "fa-child" },
+                anos1e2: { title: "1º e 2º ano", icon: "fa-pencil" },
+                anos3a5: { title: "3º a 5º ano - Digital Literacy", icon: "fa-laptop-code" },
+              }
+            },
+            cambridge: {
+              title: "Currículo Cambridge International",
+              icon: "fa-book-atlas",
+              sectors: {
+                earlyYears: { title: "Early Years", icon: "fa-seedling" },
+                primary: { title: "Primary - 1st to 5th", icon: "fa-school" },
+                lowerSecondary: { title: "Lower Secondary - 6th to 9th", icon: "fa-user-graduate" },
+              }
+            },
+            integral: {
+              title: "Integral e atividades extras",
+              icon: "fa-clock",
+              sectors: {
+                integralProf: { title: "Integral - professores de sala", icon: "fa-chalkboard-user" },
+                robotica: { title: "Robótica", icon: "fa-robot" },
+                gastronomia: { title: "Gastronomia", icon: "fa-utensils" },
+              }
+            }
           }
         }
       };
@@ -162,12 +198,14 @@
       const provider = new GoogleAuthProvider();
 
       let currentProgramId = null;
+      let currentSubgroupId = null;
       let currentSectorId = null;
 
       const screens = {
           login: document.getElementById('login-screen'),
           mainSelection: document.getElementById('main-selection-screen'),
-          subSelection: document.getElementById('sub-selection-screen'),
+          subgroupSelection: document.getElementById('subgroup-selection-screen'),
+          sectorSelection: document.getElementById('sector-selection-screen'),
           app: document.getElementById('app-screen')
       };
       
@@ -178,7 +216,7 @@
 
       onAuthStateChanged(auth, (user) => {
         if (user && user.email.split('@')[1] === SCHOOL_DOMAIN) {
-            document.querySelectorAll('#user-name-main, #user-name-sub, #user-name-app').forEach(span => {
+            document.querySelectorAll('.user-name-display').forEach(span => {
                 span.textContent = user.displayName || user.email;
             });
             const savedApiKey = localStorage.getItem(`geminiApiKey_${user.uid}`);
@@ -191,90 +229,80 @@
       });
       
       document.getElementById('login-button').addEventListener('click', () => signInWithPopup(auth, provider));
-      document.querySelectorAll('#logout-button-main, #logout-button-sub, #logout-button-app').forEach(btn => btn.addEventListener('click', () => signOut(auth)));
+      document.querySelectorAll('.logout-button').forEach(btn => btn.addEventListener('click', () => signOut(auth)));
+      
       document.getElementById('back-to-main').addEventListener('click', () => showScreen('mainSelection'));
-      document.getElementById('back-to-sub').addEventListener('click', () => showScreen('subSelection'));
+      document.getElementById('back-to-subgroup').addEventListener('click', () => showSubgroupSelection(currentProgramId));
+      document.getElementById('back-to-sector-selection').addEventListener('click', () => {
+          if (programs[currentProgramId].subgroups) {
+              showSubgroupSelection(currentProgramId);
+          } else {
+              showSectorSelection(currentProgramId);
+          }
+      });
 
-      document.getElementById('program-regular').addEventListener('click', () => showSubSelection('regular'));
-      document.getElementById('program-international').addEventListener('click', () => showSubSelection('international'));
+      document.getElementById('program-regular').addEventListener('click', () => showSectorSelection('regular'));
+      document.getElementById('program-international').addEventListener('click', () => showSubgroupSelection('international'));
 
-      function showSubSelection(programId) {
+      function showSubgroupSelection(programId) {
           currentProgramId = programId;
-          const subSelectionCards = document.getElementById('sub-selection-cards');
-          subSelectionCards.innerHTML = ''; // Limpa os cards antigos
-          const sectors = programs[programId].sectors;
-          const gridCols = Object.keys(sectors).length > 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2';
-          subSelectionCards.className = `grid grid-cols-1 md:grid-cols-2 ${gridCols} gap-6`;
+          const subgroupCards = document.getElementById('subgroup-selection-cards');
+          subgroupCards.innerHTML = '';
+          const subgroups = programs[programId].subgroups;
+          for (const subgroupId in subgroups) {
+              const subgroup = subgroups[subgroupId];
+              const card = document.createElement('div');
+              card.className = 'card cursor-pointer bg-white p-6 rounded-2xl shadow-md text-center flex flex-col items-center justify-center';
+              card.innerHTML = `<i class="fa-solid ${subgroup.icon} text-4xl text-green-700 mb-4"></i><h3 class="text-lg font-bold text-gray-800">${subgroup.title}</h3>`;
+              card.addEventListener('click', () => showSectorSelection(programId, subgroupId));
+              subgroupCards.appendChild(card);
+          }
+          showScreen('subgroupSelection');
+      }
 
+      function showSectorSelection(programId, subgroupId = null) {
+          currentProgramId = programId;
+          currentSubgroupId = subgroupId;
+          const sectorCards = document.getElementById('sector-selection-cards');
+          sectorCards.innerHTML = '';
+          
+          const sectors = subgroupId ? programs[programId].subgroups[subgroupId].sectors : programs[programId].sectors;
+          
           for (const sectorId in sectors) {
               const sector = sectors[sectorId];
               const card = document.createElement('div');
               card.className = 'card cursor-pointer bg-white p-6 rounded-2xl shadow-md text-center flex flex-col items-center justify-center';
               card.innerHTML = `<i class="fa-solid ${sector.icon} text-4xl text-green-700 mb-4"></i><h3 class="text-lg font-bold text-gray-800">${sector.title}</h3>`;
-              card.addEventListener('click', () => selectSector(sectorId));
-              subSelectionCards.appendChild(card);
+              card.addEventListener('click', () => selectFinalSector(sectorId));
+              sectorCards.appendChild(card);
           }
-          showScreen('subSelection');
+          showScreen('sectorSelection');
       }
 
-      function selectSector(sectorId) {
+      function selectFinalSector(sectorId) {
           currentSectorId = sectorId;
-          document.getElementById('sector-title').textContent = programs[currentProgramId].sectors[sectorId].title;
+          const sectorData = currentSubgroupId 
+              ? programs[currentProgramId].subgroups[currentSubgroupId].sectors[sectorId]
+              : programs[currentProgramId].sectors[sectorId];
+          document.getElementById('sector-title').textContent = sectorData.title;
           showScreen('app');
       }
       
-      function getPromptForSector(programId, sectorId, text) {
-          const basePrompt = `Você é um assistente pedagógico especializado em análise de relatórios escolares...`; // Mantido curto para brevidade
+      function getPromptForSector(programId, subgroupId, sectorId, text) {
+          const basePrompt = `Você é um assistente pedagógico...`;
           
-          // Personalize os prompts para cada setor aqui
-          const prompts = {
-              regular: {
-                  bercario: `Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
-                Sua análise deve focar nos seguintes pontos:
-                1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
-                2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
-                3.  **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
-                4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
-                5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+          let specificPrompt = `Contexto geral...`;
+          if (subgroupId) {
+              // international
+              specificPrompt = programs[programId]?.subgroups?.[subgroupId]?.sectors?.[sectorId]?.prompt || specificPrompt;
+          } else {
+              // regular
+              specificPrompt = programs[programId]?.sectors?.[sectorId]?.prompt || specificPrompt;
+          }
 
-                Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
-
-                Texto para análise:
-`,
-                  infantil1e2: `Contexto: Infantil 1 e 2...`,
-                  infantil3: `Contexto: Infantil 3...`,
-                  fundamentalIniciais: `Contexto: Fundamental Anos Iniciais...`
-              },
-              international: {
-                  infantilRegInt: `Contexto: Infantil - Regular e Integral...`,
-                  fundamental1e2: `Contexto: Fundamental Anos Iniciais - 1º e 2º ano...`,
-                  fundamental3a5: `Contexto: Fundamental Anos Iniciais - 3º a 5º ano...`,
-                  fundamentalIntegral: `Contexto: Fundamental Anos Iniciais - Integral...`,
-                  fundamentalFinaisIntegral: `Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
-            Contexto do aluno: Cursa os anos finais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
-
-            PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
-
-            Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
-
-            ### Análise Textual e Normativa
-            - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
-            - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-	-**Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
--**Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
-
-            ### Análise Estrutural e Pedagógica
-            - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
-            - **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
-                1. Cita um **exemplo prático** que justifique a observação.
-                2. Descreve a **ação do professor** para incentivar o desenvolvimento.
-            - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'perspectivas globais'. Sugestão: adicione um exemplo prático, como 'durante o debate sobre fontes de energia', e a ação pedagógica, como 'foi incentivado a pesquisar e apresentar um contra-argumento para a próxima aula'."
-
-            ---
-            Texto para análise:`,
-              }
-          };
-          const specificPrompt = prompts[programId]?.[sectorId] || `Contexto geral...`;
+          // Você vai adicionar os prompts na estrutura 'programs'
+          // Ex: programs.regular.sectors.bercario.prompt = `Seu prompt aqui`;
+          
           return `${basePrompt} ${specificPrompt} \n\n --- \n Texto para análise: \n ${text} \n ---`;
       }
       
@@ -296,7 +324,8 @@
         loadingIndicator.classList.remove('hidden');
         suggestionsDiv.innerHTML = '';
         
-        const prompt = getPromptForSector(currentProgramId, currentSectorId, text);
+        // Simulação de prompt, a lógica real precisa ser implementada em getPromptForSector
+        const prompt = `Analisando relatório para ${programs[currentProgramId].title} / ${currentSectorId}: ${text}`;
         
         try {
             const suggestions = await callGemini(prompt, apiKey);
@@ -341,19 +370,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
