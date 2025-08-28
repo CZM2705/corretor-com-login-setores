@@ -167,7 +167,21 @@
                 `
             },
             infantil1e2: { title: "Infantil 1 e 2", icon: "fa-shapes", prompt: `PROMPT PARA INFANTIL 1 E 2` },
-            infantil3: { title: "Infantil 3", icon: "fa-puzzle-piece", prompt: `PROMPT PARA INFANTIL 3` },
+            infantil3: { title: "Infantil 3", 
+                        icon: "fa-puzzle-piece", 
+                        prompt: ` Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
+            Sua análise deve focar nos seguintes pontos:
+            1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
+            2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
+            3.  **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+            4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
+            5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+	6. **Abrangência das Áreas:** Confirme se o texto aborda todas as áreas do conhecimento necessárias: linguagem, matemática, educação cósmica contemplando ciências, história e geografia, interações sociais, educação nutricional, arte e projetos. Se alguma área estiver ausente, aponte qual.
+	7. **Na finalização do relatório, sugira que contenha fatos relevantes e uma conclusão de como foi o trimestre. 
+
+            Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
+            Texto para análise:
+ ` },
             fundamentalIniciais: { title: "Fundamental Anos Iniciais", icon: "fa-book-open-reader", prompt: `PROMPT PARA FUNDAMENTAL ANOS INICIAIS` },
           }
         },
@@ -421,3 +435,4 @@
     </script>
 </body>
 </html>
+
