@@ -27,7 +27,7 @@
     <div id="login-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
         <div class="max-w-md w-full text-center bg-white p-8 sm:p-12 rounded-2xl shadow-md">
             <img src="https://www.colegiosantaursula.com.br/assets_santa/img/santaursula.svg" alt="Logo do Colégio Santa Úrsula" class="mx-auto mb-8 h-20 w-auto">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Corretor de Documentos</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Corretor de Relatórioss</h1>
             <p class="mt-6 text-gray-500">Por favor, faça login com sua conta institucional para continuar.</p>
             <button id="login-button" class="mt-8 w-full inline-flex justify-center items-center gap-3 bg-white py-3 px-6 border border-gray-300 rounded-xl shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 transition-transform transform hover:scale-105">
                 <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 381.5 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 126 21.2 174 55.8L373.5 119.8C340.6 91.2 297.4 73.8 248 73.8c-102.3 0-185.2 82.9-185.2 182.2s82.9 182.2 185.2 182.2c107.4 0 166.9-77.2 172.9-119.8H248v-66.3h239.1c1.3 12.8 2.2 25.8 2.2 39.3z"></path></svg>
@@ -151,11 +151,12 @@
                 Sua análise deve focar nos seguintes pontos:
                 1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
                 2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
-                3.  **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-                4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
-                5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
-                6. **Abrangência das Áreas:** Confirme se o texto aborda todas as áreas do conhecimento necessárias: linguagem, matemática, educação cósmica contemplando ciências, história e geografia, interações sociais, educação nutricional, arte e projetos. Se alguma área estiver ausente, aponte qual.
-                7. **Na finalização do relatório, sugira que contenha fatos relevantes e uma conclusão de como foi o trimestre.**
+                3. **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
+                4.  **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                5.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
+                6.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+                7. **Abrangência das Áreas:** Confirme se o texto aborda todas as áreas do conhecimento necessárias: linguagem, matemática, educação cósmica contemplando ciências, história e geografia, interações sociais, educação nutricional, arte e projetos. Se alguma área estiver ausente, aponte qual.
+                8. **Na finalização do relatório, sugira que contenha fatos relevantes e uma conclusão de como foi o trimestre.**
                 Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
             `},
             fundamentalIniciais: { title: "Fundamental Anos Iniciais", icon: "fa-book-open-reader", prompt: `PROMPT_FUNDAMENTAL_INICIAIS_AQUI` }
@@ -175,6 +176,7 @@
                     PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
                     Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
                     ### Análise Textual e Normativa
+                    - **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
                     - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
                     - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
                     - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
@@ -195,6 +197,7 @@
                     PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
                     Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
                     ### Análise Textual e Normativa
+                    - **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
                     - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
                     - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
                     - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
@@ -215,6 +218,7 @@
                     PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
                     Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
                     ### Análise Textual e Normativa
+                    - **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
                     - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
                     - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
                     - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
@@ -242,42 +246,37 @@
                         title: "Early Years",
                         sectors: {
                             infantil1: { title: "Infantil 1", icon: "fa-child", prompt: `
-Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
-Contexto do aluno: Cursa a disciplina de inglês como língua adicional na educação infantil I (3 a 4 anos). O trabalho de língua inglesa no ensino infantil está fundamentado na exposição contínua a atividades e rotinas conduzidas em inglês. O processo de aquisição da língua adicional ocorre de modo semelhante ao da primeira língua: pela exposição a um contexto relevante de comunicação, a criança desenvolve habilidades de recepção (observar, ouvir e decodificar) para, em seguida, produzir na língua adicional. Todo o processo de aprendizagem está amparado na contextualização das atividades para que reflitam o mundo concreto da criança.
+                    Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+                    Contexto do aluno: Cursa a disciplina de inglês como língua adicional na educação infantil I (3 a 4 anos). O trabalho de língua inglesa no ensino infantil está fundamentado na exposição contínua a atividades e rotinas conduzidas em inglês. O processo de aquisição da língua adicional ocorre de modo semelhante ao da primeira língua: pela exposição a um contexto relevante de comunicação, a criança desenvolve habilidades de recepção (observar, ouvir e decodificar) para, em seguida, produzir na língua adicional. Todo o processo de aprendizagem está amparado na contextualização das atividades para que reflitam o mundo concreto da criança.
+                    PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').  
+                    Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                    ### Análise Textual e Normativa
+                    - **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
+                    - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+                    - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                    - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+                    - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+                    ### Análise Estrutural e Pedagógica
+                    - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
+                    - **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+                        1. Cita um **exemplo prático** que justifique a observação.
+                        2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+                        - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'compreensão oral'. Sugestão: adicione um exemplo prático, como 'durante a atividade de escuta do livro didático', e a ação pedagógica, como 'foi incentivado a reler a pergunta e buscar palavras-chave durante a atividade para auxiliar na compreensão do áudio'.
+                    ### Análise da Aquisição da Língua Inglesa
+                    - **Clareza na Comunicação das Habilidades:** O relatório deve ser claro para os pais, evitando jargões pedagógicos. Verifique se, ao mencionar as quatro habilidades linguísticas, o texto oferece clareza e exemplos, separando as habilidades receptivas das habilidades de produção. 
+                    - **Habilidade Receptiva (escuta):** Quando o professor descrever a habilidade de escuta (listening), a observação deve ser acompanhada de um exemplo prático que a ilustre. Exemplo: "Demonstra boa compreensão auditiva ao seguir comandos como 'get your pencil cases'". Se o texto mencionar a habilidade de forma genérica e sem exemplos, sugira a inclusão de uma situação concreta.
+                    - **Habilidade de Produção (fala):** Quando o professor descrever a habilidade de fala (speaking), a observação também deve ser apoiada por um exemplo claro. Exemplo: "Consegue se expressar oralmente, utilizando o vocabulário trabalhado em língua inglesa como 'blue'". Se a descrição for ambígua ou sem um exemplo prático, aponte a necessidade de adicionar um para evitar falta de clareza.
 
-PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+                    ### Análise do Desenvolvimento infantil (3 a 4 anos)
+                    - **Princípios:** Todas as observações devem estar ligadas aos marcos de desenvolvimento esperados para a idade. O texto deve ser claro para a família.
+                    - **Desenvolvimento Social e Emocional:** Verifique se o relatório descreve a interação da criança com colegas e adultos (inicia brincadeiras, participa de grupos), a capacidade de partilhar, de expressar e nomear emoções (alegria, frustração) e de começar a compreender regras sociais simples. Para dificuldades, verifique se o professor descreve as estratégias pedagógicas usadas (ex: "para ajudar a lidar com a frustração, utilizamos conversas e oferecemos alternativas").
+                    - **Desenvolvimento Motor:** O texto descreve as habilidades motoras amplas (correr, pular) e finas (manusear pequenos objetos, tentativas de usar tesoura)? Para dificuldades (ex: no traçado), verifique se o professor descreve as atividades propostas (ex: "para desenvolver essa habilidade, propomos brincadeiras com massinha, pinça e alinhavo").
+                    - **Desenvolvimento Pedagógico e Rotina:** O relatório menciona a capacidade de seguir a rotina, o tempo de concentração e a curiosidade? Para dificuldades (ex: baixo tempo de concentração), verifique se o professor contextualiza com a idade e explica a estratégia (ex: "propomos atividades mais curtas e dinâmicas para manter o seu engajamento").
 
-Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
-
-### Análise Textual e Normativa
-- **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
-- **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
-- **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-- **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
-- **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
-
-### Análise Estrutural e Pedagógica
-- **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
-- **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
-    1. Cita um **exemplo prático** que justifique a observação.
-    2. Descreve a **ação do professor** para incentivar o desenvolvimento.
-    - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'compreensão oral'. Sugestão: adicione um exemplo prático, como 'durante a atividade de escuta do livro didático', e a ação pedagógica, como 'foi incentivado a reler a pergunta e buscar palavras-chave durante a atividade para auxiliar na compreensão do áudio'.
-
-### Análise da Aquisição da Língua Inglesa
-- **Clareza na Comunicação das Habilidades:** O relatório deve ser claro para os pais, evitando jargões pedagógicos. Verifique se, ao mencionar as quatro habilidades linguísticas, o texto oferece clareza e exemplos, separando as habilidades receptivas das habilidades de produção. 
-- **Habilidade Receptiva (escuta):** Quando o professor descrever a habilidade de escuta (listening), a observação deve ser acompanhada de um exemplo prático que a ilustre. Exemplo: "Demonstra boa compreensão auditiva ao seguir comandos como 'get your pencil cases'". Se o texto mencionar a habilidade de forma genérica e sem exemplos, sugira a inclusão de uma situação concreta.
-- **Habilidade de Produção (fala):** Quando o professor descrever a habilidade de fala (speaking), a observação também deve ser apoiada por um exemplo claro. Exemplo: "Consegue se expressar oralmente, utilizando o vocabulário trabalhado em língua inglesa como 'blue'". Se a descrição for ambígua ou sem um exemplo prático, aponte a necessidade de adicionar um para evitar falta de clareza.
-
-### Análise do Desenvolvimento infantil (3 a 4 anos)
-- **Princípios:** Todas as observações devem estar ligadas aos marcos de desenvolvimento esperados para a idade. O texto deve ser claro para a família.
-- **Desenvolvimento Social e Emocional:** Verifique se o relatório descreve a interação da criança com colegas e adultos (inicia brincadeiras, participa de grupos), a capacidade de partilhar, de expressar e nomear emoções (alegria, frustração) e de começar a compreender regras sociais simples. Para dificuldades, verifique se o professor descreve as estratégias pedagógicas usadas (ex: "para ajudar a lidar com a frustração, utilizamos conversas e oferecemos alternativas").
-- **Desenvolvimento Motor:** O texto descreve as habilidades motoras amplas (correr, pular) e finas (manusear pequenos objetos, tentativas de usar tesoura)? Para dificuldades (ex: no traçado), verifique se o professor descreve as atividades propostas (ex: "para desenvolver essa habilidade, propomos brincadeiras com massinha, pinça e alinhavo").
-- **Desenvolvimento Pedagógico e Rotina:** O relatório menciona a capacidade de seguir a rotina, o tempo de concentração e a curiosidade? Para dificuldades (ex: baixo tempo de concentração), verifique se o professor contextualiza com a idade e explica a estratégia (ex: "propomos atividades mais curtas e dinâmicas para manter o seu engajamento").
-
-### Análise da Rotina Integral (Alimentação e Descanso)
-- **Alimentação:** Verifique se o relatório descreve a relação da criança com a alimentação (experimenta novos alimentos, autonomia). Para desafios como seletividade, verifique se o professor descreve as estratégias da escola (ex: "para incentivar a experimentação, realizamos atividades culinárias").
-- **Descanso:** O relatório aborda o momento de descanso (se dorme, se relaxa)? Para dificuldades (ex: agitação), verifique se o professor detalha a abordagem (ex: "para criar um ambiente tranquilo, utilizamos música calma e histórias").
-`
+                    ### Análise da Rotina Integral (Alimentação e Descanso)
+                    - **Alimentação:** Verifique se o relatório descreve a relação da criança com a alimentação (experimenta novos alimentos, autonomia). Para desafios como seletividade, verifique se o professor descreve as estratégias da escola (ex: "para incentivar a experimentação, realizamos atividades culinárias").
+                    - **Descanso:** O relatório aborda o momento de descanso (se dorme, se relaxa)? Para dificuldades (ex: agitação), verifique se o professor detalha a abordagem (ex: "para criar um ambiente tranquilo, utilizamos música calma e histórias").
+                    `
                             },
                             infantil2: { title: "Infantil 2", icon: "fa-child", prompt: `
                                 Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
@@ -288,6 +287,7 @@ Analise o relatório sob os seguintes critérios e formate a resposta em Markdow
                                 Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
 
                                 ### Análise Textual e Normativa
+                                - **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
                                 - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
                                 - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
                                 - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
@@ -330,7 +330,7 @@ Analise o relatório sob os seguintes critérios e formate a resposta em Markdow
                                 Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
 
                                 ### Análise Textual e Normativa
-                                **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
+                                - **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
                                 - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
                                 - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
                                 - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
@@ -471,7 +471,8 @@ Analise o relatório sob os seguintes critérios e formate a resposta em Markdow
                         1.  **Pontos Fortes:** Habilidades e conhecimentos em destaque.
                         2.  **Áreas de Desenvolvimento:** Habilidades que precisam de aprimoramento.
                         3.  **Dificuldades de Aprendizagem:** Desafios específicos no processo.
-                        4.  **Comportamento:** Observações sobre participação, respeito e colaboração. Neste ponto, verifique ativamente se a descrição de comportamentos desafiadores segue o princípio de "descrever a cena" em vez de rotular. A ata deve relatar o que aconteceu, e não apenas classificar a criança.
+                        4. **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
+                        5.  **Comportamento:** Observações sobre participação, respeito e colaboração. Neste ponto, verifique ativamente se a descrição de comportamentos desafiadores segue o princípio de "descrever a cena" em vez de rotular. A ata deve relatar o que aconteceu, e não apenas classificar a criança.
 
                     - **Próximos passos:** Para cada área de desenvolvimento ou dificuldade apresentada, verifique se o texto propõe estratégias ou "próximos passos". Se não houver, sugira que o professor adicione as ações que serão implementadas ou discutidas.
 
@@ -759,4 +760,5 @@ Analise o relatório sob os seguintes critérios e formate a resposta em Markdow
     </script>
 </body>
 </html>
+
 
