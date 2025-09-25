@@ -37,26 +37,19 @@
         </div>
     </div>
 
-    <!-- 2. TELA DE SELEÇÃO PRINCIPAL (PROGRAMA) -->
+    <!-- 2. TELA DE SELEÇÃO PRINCIPAL -->
     <div id="main-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
         <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
-                <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-main" class="font-semibold"></span>!</p>
+                <button id="logout-button-main" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
         </header>
-        <div class="text-center">
+        <div class="text-center w-full max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Programa</h2>
-            <p class="text-lg text-gray-500 mb-10">Escolha o programa para o qual deseja corrigir um relatório.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div id="program-regular" class="card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center">
-                    <i class="fa-solid fa-graduation-cap text-5xl text-green-700 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-gray-800">Regular</h3>
-                </div>
-                <div id="program-international" class="card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center">
-                    <i class="fa-solid fa-earth-americas text-5xl text-green-700 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-gray-800">Educação Internacional e Integral Bilíngue</h3>
-                </div>
+            <p class="text-lg text-gray-500 mb-10">Escolha o programa para o qual deseja corrigir um documento.</p>
+            <div id="main-selection-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cards serão inseridos pelo JS -->
             </div>
         </div>
     </div>
@@ -66,45 +59,44 @@
          <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
                 <button id="back-to-main" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
-                <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
-                <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-subgroup" class="font-semibold"></span>!</p>
+                <button id="logout-button-subgroup" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
         </header>
         <div class="text-center">
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Currículo</h2>
-            <p class="text-lg text-gray-500 mb-10">Para qual área é o relatório?</p>
-            <div id="subgroup-selection-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <p class="text-lg text-gray-500 mb-10">Para qual currículo é o relatório?</p>
+            <div id="subgroup-selection-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
         </div>
     </div>
-
-    <!-- 4. TELA DE SELEÇÃO DE SETOR FINAL -->
+    
+    <!-- 4. TELA DE SELEÇÃO DE SETOR -->
     <div id="sector-selection-screen" class="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 hidden">
          <header class="absolute top-0 left-0 right-0 bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <button id="back-to-previous-from-sector" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
-                <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
-                <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+                <button id="back-to-previous" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-sector" class="font-semibold"></span>!</p>
+                <button id="logout-button-sector" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
         </header>
         <div class="text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione a Turma</h2>
-            <p class="text-lg text-gray-500 mb-10">Para qual turma/matéria é o relatório?</p>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Selecione o Setor</h2>
+            <p class="text-lg text-gray-500 mb-10">Para qual etapa é o documento?</p>
             <div id="sector-selection-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </div>
     </div>
-
 
     <!-- 5. APLICAÇÃO PRINCIPAL -->
     <div id="app-screen" class="hidden">
         <header class="bg-white shadow-sm">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                 <button id="back-to-sector-selection" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Trocar Turma</button>
-                <p class="text-sm text-gray-600">Bem-vindo(a), <span class="user-name-display font-semibold"></span>!</p>
-                <button class="logout-button text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
+                 <button id="back-to-sector-selection" class="text-sm font-medium text-green-700 hover:text-green-900 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i>Trocar Setor</button>
+                <p class="text-sm text-gray-600">Bem-vindo(a), <span id="user-name-app" class="font-semibold"></span>!</p>
+                <button id="logout-button-app" class="text-sm font-medium text-green-700 hover:text-green-900">Sair</button>
             </div>
         </header>
         <div class="container mx-auto px-4 py-8 md:py-12">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Corretor de Relatórios: <span id="sector-title" class="text-green-800"></span></h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Corretor de Documentos: <span id="sector-title" class="text-green-800"></span></h2>
             <main class="max-w-4xl mx-auto">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
                     <div class="mb-6">
@@ -114,11 +106,11 @@
                     </div>
                     <div class="border-t border-gray-200 my-6"></div>
                     <div class="mb-6">
-                        <label for="report-text" class="block text-lg font-semibold text-gray-700 mb-2">Relatório do Aluno:</label>
-                        <textarea id="report-text" rows="12" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500" placeholder="Cole o texto do relatório aqui..."></textarea>
+                        <label for="report-text" class="block text-lg font-semibold text-gray-700 mb-2">Texto para Análise:</label>
+                        <textarea id="report-text" rows="12" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500" placeholder="Cole o texto do relatório ou ata aqui..."></textarea>
                     </div>
                     <div class="text-center">
-                        <button id="analyze-button" class="bg-green-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 transition-transform transform hover:scale-105">Analisar Relatório</button>
+                        <button id="analyze-button" class="bg-green-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 transition-transform transform hover:scale-105">Analisar Texto</button>
                     </div>
                 </div>
                 <div id="results-container" class="mt-10 bg-white p-6 md:p-8 rounded-2xl shadow-lg hidden">
@@ -131,7 +123,6 @@
         </div>
     </div>
     
-    <!-- Módulos do Firebase -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
       import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -145,211 +136,202 @@
         messagingSenderId: "724149401323",
         appId: "1:724149401323:web:fdf14d941e5cc84db2b0ae"
       };
-      const SCHOOL_DOMAIN = "ursulinebrazil.com"; // Verifique se este é o domínio correto
+      const SCHOOL_DOMAIN = "ursulinebrazil.com"; // Domínio de e-mail atualizado
 
       // --- ESTRUTURA DOS SETORES E PROMPTS ---
       const programs = {
         regular: {
           title: "Regular",
+          icon: "fa-graduation-cap",
           sectors: {
-            bercario: { 
-                title: "Berçário", 
-                icon: "fa-baby-carriage",
-                prompt: `
-                    Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
-                    Sua análise deve focar nos seguintes pontos:
-                    1. **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
-                    2. **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
-                    3. **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
-                    4. **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
-                    5. **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
-                    Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
-                `
-            },
-            infantil1e2: { title: "Infantil 1 e 2", icon: "fa-shapes", prompt: `PROMPT PARA INFANTIL 1 E 2` },
-            infantil3: { title: "Infantil 3", 
-                        icon: "fa-puzzle-piece", 
-                        prompt: ` Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
-            Sua análise deve focar nos seguintes pontos:
-            1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
-            2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
-            3.  **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-            4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
-            5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
-			6. **Abrangência das Áreas:** Confirme se o texto aborda todas as áreas do conhecimento necessárias: linguagem, matemática, educação cósmica contemplando ciências, história e geografia, interações sociais, educação nutricional, arte e projetos. Se alguma área estiver ausente, aponte qual.
-			7. **Na finalização do relatório, sugira que contenha fatos relevantes e uma conclusão de como foi o trimestre. 
-
-            Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
-            Texto para análise:
- ` },
-            fundamentalIniciais: { title: "Atas", 
-								  icon: "fa-book-open-reader", 
-								  prompt: `
-Você é um assistente pedagógico especializado em revisar Atas de Reunião preparatórias. Sua tarefa é analisar a ATA a seguir e fornecer SUGESTÕES PONTUAIS para garantir que ela seja clara, completa e profissional para a reunião com a família ou especialista. O objetivo é guiar o professor, não fazer o trabalho por ele.
-
-**PRINCÍPIOS FUNDAMENTAIS:**
-1.  **Não Rotular:** Evite qualquer linguagem que possa rotular o aluno (ex: "birrento", "fraco", "agressivo", "agitado"). Foque em descrever comportamentos observáveis (ex: "apresentou dificuldade em controlar impulsos", "necessidade de aprimoramento"). 
-2. 	**Para temas sensíveis (agitação, agressividade, isolamento), a orientação é ainda mais crucial: em vez de afirmar que "o aluno é agitado", sua sugestão deve ser para que o professor descreva o contexto e a ação. Por exemplo, aponte o trecho e sugira: "Aqui, em vez de classificar o comportamento, procure descrever a situação que o motivou. Exemplo: 'Durante atividades em grupo que exigem espera, foi observado que o aluno se levantou da cadeira repetidas vezes, balançou as mãos e teve dificuldade em aguardar sua vez de falar.
-3.  **Clareza e Objetividade:** As sugestões devem visar um texto claro, direto ao ponto e sem jargões complexos, facilitando a compreensão por parte da família.
-4.  ** Não utilizar o termo "apesar desses progressos". 
----
-
-Analise a ATA sob os seguintes critérios e formate a resposta em Markdown:
-
-### Análise Estrutural e de Conteúdo
-- **Origem da Reunião:** Verifique se o primeiro parágrafo informa claramente quem solicitou a reunião (escola, família ou especialista). Se faltar, sugira a adição.
-- ** - Estrutura das Áreas do Conhecimento: Verifique se a ata aborda de forma agrupada e única as áreas necessárias: linguagem, matemática, educação cósmica (ciências, história e geografia) e interações sociais. As observações sobre essas áreas devem estar concentradas em uma única seção da ata, não espalhadas por vários parágrafos. Se alguma área estiver ausente ou se estiverem repetidas em diferentes partes do texto, aponte a necessidade de centralizar essa análise. 
-- **Contexto e Progresso:** A ata precisa conter observações que relacionem o tempo de concentração com a idade da criança, além dos conteúdos e objetivos trabalhados. Verifique se o texto ressalta os avanços individuais, valorizando as conquistas do aluno em relação aos objetivos esperados.
-- **Detalhes e Exemplos:** Analise se o texto descreve a rotina do aluno com exemplos práticos, falas e observações detalhadas. Se o texto for muito genérico, sugira a inclusão de exemplos específicos para ilustrar os pontos.
-- **Especialmente em descrições de comportamento, verifique se o professor relata a situação em vez de apenas adjetivar o aluno. Aponte trechos como "O aluno foi agressivo" e sugira uma descrição do fato, como: "Ao ser contrariado durante a brincadeira, o aluno empurrou o colega.
-- **Estrutura 'Sanduíche':** Verifique se a ata intercala pontos fortes e áreas de desenvolvimento. A estrutura sugerida é:
-    1.  **Pontos Fortes:** Habilidades e conhecimentos em destaque.
-    2.  **Áreas de Desenvolvimento:** Habilidades que precisam de aprimoramento.
-    3.  **Dificuldades de Aprendizagem:** Desafios específicos no processo.
-    4.  **Comportamento:** Observações sobre participação, respeito e colaboração. Neste ponto, verifique ativamente se a descrição de comportamentos desafiadores segue o princípio de "descrever a cena" em vez de rotular. A ata deve relatar o que aconteceu, e não apenas classificar a criança.
-
-- **Próximos passos:** Para cada área de desenvolvimento ou dificuldade apresentada, verifique se o texto propõe estratégias ou "próximos passos". Se não houver, sugira que o professor adicione as ações que serão implementadas ou discutidas.
-
-### Análise Textual e de Estilo
-- **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção.
-- **Tempo Verbal e Impessoalidade:**
-    - Verifique se o texto dá preferência à **3ª pessoa**, focando no estudante.
-    - O **pretérito perfeito (passado)** deve ser usado para descrever atividades, resultados e a evolução do aprendizado.
-    - O **presente** deve ser usado apenas para informações gerais, fatos científicos ou recomendações.
-    - Aponte trechos que fogem a essa regra e sugira alternativas. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa como 'foi observado que o aluno participou'".
-- **Vocabulário Sugerido:** Verifique se o texto utiliza termos adequados, como:
-    - **Desempenho:** "progressão", "avanços", "desempenho satisfatório", "necessidade de aprimoramento".
-    - **Comportamento:** "interação", "participação", "colaboração", "reação a frustrações", "manejo de conflitos". 
-    - **Habilidades Sociais:** "comunicação", "empatia", "habilidade de trabalhar em grupo".
-    - **Conclusão:** "recomendações", "orientações", "próximos passos".
-`						  		 		 
-								 },
+            bercario: { title: "Berçário", icon: "fa-baby-carriage", prompt: `PROMPT_BERCARIO_AQUI` },
+            infantil1e2: { title: "Infantil 1 e 2", icon: "fa-shapes", prompt: `PROMPT_INFANTIL1E2_AQUI` },
+            infantil3: { title: "Infantil 3", icon: "fa-child", prompt: `
+                Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
+                Sua análise deve focar nos seguintes pontos:
+                1.  **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
+                2.  **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
+                3.  **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                4.  **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
+                5.  **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
+                6. **Abrangência das Áreas:** Confirme se o texto aborda todas as áreas do conhecimento necessárias: linguagem, matemática, educação cósmica contemplando ciências, história e geografia, interações sociais, educação nutricional, arte e projetos. Se alguma área estiver ausente, aponte qual.
+                7. **Na finalização do relatório, sugira que contenha fatos relevantes e uma conclusão de como foi o trimestre.
+                Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
+            ` },
+            fundamentalIniciais: { title: "Fundamental Anos Iniciais", icon: "fa-book-open-reader", prompt: `PROMPT_FUNDAMENTAL_INICIAIS_AQUI` }
           }
         },
         international: {
           title: "Educação Internacional e Integral Bilíngue",
+          icon: "fa-earth-americas",
           subgroups: {
-            english: {
-              title: "Currículo de inglês",
+            ingles: {
+              title: "Currículo de Inglês",
               icon: "fa-language",
               sectors: {
-                bercario3infantil: { title: "Berçário 3 e Infantil regular", 
-									icon: "fa-child", 
-									prompt: `PROMPT PARA BERCÁRIO 3 E INFANTIL REGULAR` },
-                anos1e2: { title: "1º e 2º ano", 
-						  icon: "fa-pencil", 
-						  prompt: `Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
-                        Contexto do aluno: Cursa a disciplina de inglês como língua adicional no 1º ou 2º ano do ensino fundamental anos iniciais. 
-                        PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
-                        Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
-                        ### Análise Textual e Normativa
-                        - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
-                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-                        - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
-                        - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
-                        ### Análise Estrutural e Pedagógica
-                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
-					    - **Pontos de Desenvolvimento:**Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
-             		   1. Cita um **exemplo prático** que justifique a observação.
-             		   2. Descreve a **ação do professor** para incentivar o desenvolvimento.
-         			   - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'compreensão oral'. Sugestão: adicione um exemplo prático, como 'durante a atividade de escuta do livro didático', e a ação pedagógica, como 'foi incentivado a reler a pergunta e buscar palavras-chave durante a atividade para auxiliar na compreensão do áudio'.
-					   - **Análise da Aquisição da Língua Inglesa:**Clareza na Comunicação das Habilidades: O relatório deve ser claro para os pais, evitando jargões pedagógicos. Verifique se, ao mencionar as quatro habilidades linguísticas, o texto oferece clareza e exemplos, separando as habilidades receptivas das habilidades de produção. 
-Habilidades Receptivas (escuta e leitura): Quando o professor descrever a habilidade de escuta (listening) ou leitura (reading), a observação deve ser acompanhada de um exemplo prático que a ilustre. Exemplo: "Demonstra boa compreensão auditiva ao seguir comandos como 'open your book to page ten'". Se o texto mencionar a habilidade de forma genérica e sem exemplos, sugira a inclusão de uma situação concreta.
-Habilidades de Produção (escrita e fala): Quando o professor descrever a habilidade de escrita (writing) ou fala (speaking), a observação também deve ser apoiada por um exemplo claro. Exemplo: "Consegue se expressar oralmente, formando frases simples como 'My favorite color is blue'". Se a descrição for ambígua ou sem um exemplo prático, aponte a necessidade de adicionar um para evitar falta de clareza.
-
-            ---
-            Texto para análise:`,
-
-`},
-                anos3a5: { title: "3º a 5º ano - Digital Literacy", 
-						   icon: "fa-laptop-code",
-						   prompt: `  Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
-                        Contexto do aluno: Cursa a disciplina de inglês como língua adicional no 3º, 4º ou 5º ano do ensino fundamental anos iniciais. A disciplina também engloba aulas de Digital Literacy, parte de um currículo internacional, em língua inglesa.  
-                        PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
-                        Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
-                        ### Análise Textual e Normativa
-                        - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
-                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-                        - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
-                        - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
-                        ### Análise Estrutural e Pedagógica
-                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
- - **Pontos de Desenvolvimento:**Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
-                1. Cita um **exemplo prático** que justifique a observação.
-                2. Descreve a **ação do professor** para incentivar o desenvolvimento.
-         	   - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'compreensão oral'. Sugestão: adicione um exemplo prático, como 'durante a atividade de escuta do livro didático', e a ação pedagógica, como 'foi incentivado a reler a pergunta e buscar palavras-chave durante a atividade para auxiliar na compreensão do áudio'.
-		-**Análise da Aquisição da Língua Inglesa:**Clareza na Comunicação das Habilidades: O relatório deve ser claro para os pais, evitando jargões pedagógicos. Verifique se, ao mencionar as quatro habilidades linguísticas, o texto oferece clareza e exemplos, separando as habilidades receptivas das habilidades de produção. 
-Habilidades Receptivas (escuta e leitura): Quando o professor descrever a habilidade de escuta (listening) ou leitura (reading), a observação deve ser acompanhada de um exemplo prático que a ilustre. Exemplo: "Demonstra boa compreensão auditiva ao seguir comandos como 'open your book to page ten'". Se o texto mencionar a habilidade de forma genérica e sem exemplos, sugira a inclusão de uma situação concreta.
-Habilidades de Produção (escrita e fala): Quando o professor descrever a habilidade de escrita (writing) ou fala (speaking), a observação também deve ser apoiada por um exemplo claro. Exemplo: "Consegue se expressar oralmente, formando frases simples como 'My favorite color is blue'". Se a descrição for ambígua ou sem um exemplo prático, aponte a necessidade de adicionar um para evitar falta de clareza.
--**Análise de Digital Literacy:**Verificação do Componente. Verifique se há menção ao desenvolvimento de habilidades digitais, como o uso de ferramentas específicas (softwares, plataformas), segurança e bem-estar e noções de cidadania digital.
-Exemplos Práticos: As observações precisam ser ilustradas com exemplos concretos do desempenho do aluno. Por exemplo: "o aluno demonstrou saber como criar senhas seguras e fáceis de lembrar e entendeu a necessidade disso" ou "o aluno usou palavras-chave para buscar por informações em uma ferramenta de busca".
-Sugestão de Inclusão: Se o componente de Digital Literacy não for mencionado no relatório, aponte a ausência e sugira a inclusão de um parágrafo que detalhe o progresso e a participação do aluno nessas aulas específicas.
-
-            ---
-            Texto para análise:`,
- ` },
+                bercario3eInfantil: { title: "Berçário 3 e Infantil regular", icon: "fa-shapes", prompt: `
+                    Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+                    Contexto do aluno: Cursa a disciplina de inglês como língua adicional no berçário 3 (alunos de 2 a 3 anos) ou educação infantil (de 3 a 6 anos). O trabalho de língua inglesa no ensino infantil está fundamentado na exposição contínua a atividades e rotinas conduzidas em inglês. O processo de aquisição da língua adicional ocorre de modo semelhante ao da primeira língua: pela exposição a um contexto relevante de comunicação, a criança desenvolve habilidades de recepção (observar, ouvir e decodificar) para, em seguida, produzir na língua adicional. Todo o processo de aprendizagem está amparado na contextualização das atividades para que reflitam o mundo concreto da criança.
+                    PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+                    Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                    ### Análise Textual e Normativa
+                    - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+                    - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                    - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+                    - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+                    ### Análise Estrutural e Pedagógica
+                    - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
+                    - **Pontos de Desenvolvimento:**Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+                    1. Cita um **exemplo prático** que justifique a observação.
+                    2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+                    - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'compreensão oral'. Sugestão: adicione um exemplo prático, como 'durante a atividade de escuta do livro didático', e a ação pedagógica, como 'foi incentivado a reler a pergunta e buscar palavras-chave durante a atividade para auxiliar na compreensão do áudio'.
+                    -**Análise da Aquisição da Língua Inglesa:**Clareza na Comunicação das Habilidades: O relatório deve ser claro para os pais, evitando jargões pedagógicos. Verifique se, ao mencionar as quatro habilidades linguísticas, o texto oferece clareza e exemplos, separando as habilidades receptivas das habilidades de produção. 
+                    Habilidade Receptiva (escuta): Quando o professor descrever a habilidade de escuta (listening), a observação deve ser acompanhada de um exemplo prático que a ilustre. Exemplo: "Demonstra boa compreensão auditiva ao seguir comandos como 'get your pencil cases'". Se o texto mencionar a habilidade de forma genérica e sem exemplos, sugira a inclusão de uma situação concreta.
+                    Habilidade de Produção (fala): Quando o professor descrever a habilidade de fala (speaking), a observação também deve ser apoiada por um exemplo claro. Exemplo: "Consegue se expressar oralmente, utilizando o vocabulário trabalhado em língua inglesa como 'blue'". Se a descrição for ambígua ou sem um exemplo prático, aponte a necessidade de adicionar um para evitar falta de clareza.
+                ` },
+                anos1e2: { title: "1º e 2º ano", icon: "fa-book-open", prompt: `
+                    Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+                    Contexto do aluno: Cursa a disciplina de inglês como língua adicional no 1º ou 2º ano do ensino fundamental anos iniciais. 
+                    PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+                    Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                    ### Análise Textual e Normativa
+                    - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+                    - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                    - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+                    - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+                    ### Análise Estrutural e Pedagógica
+                    - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
+                    - **Pontos de Desenvolvimento:**Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+                    1. Cita um **exemplo prático** que justifique a observação.
+                    2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+                    - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'compreensão oral'. Sugestão: adicione um exemplo prático, como 'durante a atividade de escuta do livro didático', e a ação pedagógica, como 'foi incentivado a reler a pergunta e buscar palavras-chave durante a atividade para auxiliar na compreensão do áudio'.
+                    -**Análise da Aquisição da Língua Inglesa:**Clareza na Comunicação das Habilidades: O relatório deve ser claro para os pais, evitando jargões pedagógicos. Verifique se, ao mencionar as quatro habilidades linguísticas, o texto oferece clareza e exemplos, separando as habilidades receptivas das habilidades de produção. 
+                    Habilidades Receptivas (escuta e leitura): Quando o professor descrever a habilidade de escuta (listening) ou leitura (reading), a observação deve ser acompanhada de um exemplo prático que a ilustre. Exemplo: "Demonstra boa compreensão auditiva ao seguir comandos como 'open your book to page ten'". Se o texto mencionar a habilidade de forma genérica e sem exemplos, sugira a inclusão de uma situação concreta.
+                    Habilidades de Produção (escrita e fala): Quando o professor descrever a habilidade de escrita (writing) ou fala (speaking), a observação também deve ser apoiada por um exemplo claro. Exemplo: "Consegue se expressar oralmente, formando frases simples como 'My favorite color is blue'". Se a descrição for ambígua ou sem um exemplo prático, aponte a necessidade de adicionar um para evitar falta de clareza.
+                ` },
+                anos3a5: { title: "3º a 5º ano - Digital Literacy", icon: "fa-laptop-code", prompt: `
+                    Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+                    Contexto do aluno: Cursa a disciplina de inglês como língua adicional no 3º, 4º ou 5º ano do ensino fundamental anos iniciais. A disciplina também engloba aulas de Digital Literacy, parte de um currículo internacional, em língua inglesa.  
+                    PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+                    Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                    ### Análise Textual e Normativa
+                    - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+                    - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                    - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+                    - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+                    ### Análise Estrutural e Pedagógica
+                    - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
+                    - **Pontos de Desenvolvimento:**Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+                    1. Cita um **exemplo prático** que justifique a observação.
+                    2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+                    - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'compreensão oral'. Sugestão: adicione um exemplo prático, como 'durante a atividade de escuta do livro didático', e a ação pedagógica, como 'foi incentivado a reler a pergunta e buscar palavras-chave durante a atividade para auxiliar na compreensão do áudio'.
+                    -**Análise da Aquisição da Língua Inglesa:**Clareza na Comunicação das Habilidades: O relatório deve ser claro para os pais, evitando jargões pedagógicos. Verifique se, ao mencionar as quatro habilidades linguísticas, o texto oferece clareza e exemplos, separando as habilidades receptivas das habilidades de produção. 
+                    Habilidades Receptivas (escuta e leitura): Quando o professor descrever a habilidade de escuta (listening) ou leitura (reading), a observação deve ser acompanhada de um exemplo prático que a ilustre. Exemplo: "Demonstra boa compreensão auditiva ao seguir comandos como 'open your book to page ten'". Se o texto mencionar a habilidade de forma genérica e sem exemplos, sugira a inclusão de uma situação concreta.
+                    Habilidades de Produção (escrita e fala): Quando o professor descrever a habilidade de escrita (writing) ou fala (speaking), a observação também deve ser apoiada por um exemplo claro. Exemplo: "Consegue se expressar oralmente, formando frases simples como 'My favorite color is blue'". Se a descrição for ambígua ou sem um exemplo prático, aponte a necessidade de adicionar um para evitar falta de clareza.
+                    -**Análise de Digital Literacy:**Verificação do Componente. Verifique se há menção ao desenvolvimento de habilidades digitais, como o uso de ferramentas específicas (softwares, plataformas), segurança e bem-estar e noções de cidadania digital.
+                    Exemplos Práticos: As observações precisam ser ilustradas com exemplos concretos do desempenho do aluno. Por exemplo: "o aluno demonstrou saber como criar senhas seguras e fáceis de lembrar e entendeu a necessidade disso" ou "o aluno usou palavras-chave para buscar por informações em uma ferramenta de busca".
+                    Sugestão de Inclusão: Se o componente de Digital Literacy não for mencionado no relatório, aponte a ausência e sugira a inclusão de um parágrafo que detalhe o progresso e a participação do aluno nessas aulas específicas.
+                ` }
               }
             },
             cambridge: {
               title: "Currículo Cambridge International",
-              icon: "fa-book-atlas",
+              icon: "fa-globe",
               sectors: {
-                earlyYears: { 
-							title: "Early Years", 
-							 icon: "fa-seedling", 
-							 prompt: `PROMPT PARA EARLY YEARS` },
-                primary: { 
-					title: "Primary - 1st to 5th", 
-					icon: "fa-school", 
-					prompt: `Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
-                        Contexto do aluno: Cursa os anos iniciais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
-                        PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
-                        Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
-                        ### Análise Textual e Normativa
-                        - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demonstrou', sugira 'demonstrou'".
-                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-                        - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
-                        - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
-                        ### Análise Estrutural e Pedagógica
-                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
-                        - **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
-                        1. Cita um **exemplo prático** que justifique a observação.
-                        2. Descreve a **ação do professor** para incentivar o desenvolvimento.
-                        - **Se um desses requisitos faltar, aponte de forma específica.** Exemplo: "O texto menciona que o aluno tem dificuldade em 'perspectivas globais'. Sugestão: adicione um exemplo prático, como 'durante o debate sobre fontes de energia', e a ação pedagógica, como 'foi incentivado a pesquisar e apresentar um contra-argumento para a próxima aula'."
-                    ` },
-                lowerSecondary: { 
-                    title: "Lower Secondary - 6th to 9th", 
-                    icon: "fa-user-graduate",
-                    prompt: `
-                        Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
-                        Contexto do aluno: Cursa os anos finais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
-                        PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
-                        Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
-                        ### Análise Textual e Normativa
-                        - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
-                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
-                        - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
-                        - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
-                        ### Análise Estrutural e Pedagógica
-                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
-                        - **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
-                        1. Cita um **exemplo prático** que justifique a observação.
-                        2. Descreve a **ação do professor** para incentivar o desenvolvimento.
-                        - **Se um desses requisitos faltar, aponte de forma específica.** Exemplo: "O texto menciona que o aluno tem dificuldade em 'perspectivas globais'. Sugestão: adicione um exemplo prático, como 'durante o debate sobre fontes de energia', e a ação pedagógica, como 'foi incentivado a pesquisar e apresentar um contra-argumento para a próxima aula'."
-                    `
-                },
+                early: { title: "Early Years", icon: "fa-seedling", prompt: `PROMPT_EARLY_YEARS_AQUI` },
+                primary: { title: "Primary - 1st to 5th", icon: "fa-school", prompt: `
+                    Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+                    Contexto do aluno: Cursa os anos iniciais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
+                    PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+                    Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                    ### Análise Textual e Normativa
+                    - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+                    - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                    - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+                    - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+                    ### Análise Estrutural e Pedagógica
+                    - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
+                    - **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+                    1. Cita um **exemplo prático** que justifique a observação.
+                    2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+                    - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'perspectivas globais'. Sugestão: adicione um exemplo prático, como 'durante o debate sobre fontes de energia', e a ação pedagógica, como 'foi incentivado a pesquisar e apresentar um contra-argumento para a próxima aula'."
+                ` },
+                lower: { title: "Lower Secondary - 6th to 9th", icon: "fa-user-graduate", prompt: `
+                         Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+                        Contexto do aluno: Cursa os anos finais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
+                        PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+                        Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                        ### Análise Textual e Normativa
+                        - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                        - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+                        - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+                        ### Análise Estrutural e Pedagógica
+                      	- **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
+                      	- **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+                      	1. Cita um **exemplo prático** que justifique a observação.
+                      	2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+                      	- **Se um desses requisitos faltar, aponte de forma específica.** Exemplo: "O texto menciona que o aluno tem dificuldade em 'perspectivas globais'. Sugestão: adicione um exemplo prático, como 'durante o debate sobre fontes de energia', e a ação pedagógica, como 'foi incentivado a pesquisar e apresentar um contra-argumento para a próxima aula'."
+`
+                }
               }
             },
             integral: {
               title: "Integral e atividades extras",
-              icon: "fa-clock",
+              icon: "fa-sun",
               sectors: {
-                integralProf: { title: "Integral - professores de sala", icon: "fa-chalkboard-user", prompt: `PROMPT PARA INTEGRAL` },
-                robotica: { title: "Robótica", icon: "fa-robot", prompt: `PROMPT PARA ROBÓTICA` },
-                gastronomia: { title: "Gastronomia", icon: "fa-utensils", prompt: `PROMPT PARA GASTRONOMIA` },
+                integralProf: { title: "Integral - professores de sala", icon: "fa-chalkboard-user", prompt: `PROMPT_INTEGRAL_PROF_AQUI` },
+                robotica: { title: "Robótica", icon: "fa-robot", prompt: `PROMPT_ROBOTICA_AQUI` },
+                gastronomia: { title: "Gastronomia", icon: "fa-utensils", prompt: `PROMPT_GASTRONOMIA_AQUI` }
               }
             }
           }
+        },
+        docs: {
+            title: "Documentos Pedagógicos",
+            icon: "fa-file-alt",
+            sectors: {
+                ata: { title: "Ata de Reunião", icon: "fa-file-signature", prompt: `
+                    Você é um assistente pedagógico especializado em revisar Atas de Reunião preparatórias. Sua tarefa é analisar a ATA a seguir e fornecer SUGESTÕES PONTUAIS para garantir que ela seja clara, completa e profissional para a reunião com a família ou especialista. O objetivo é guiar o professor, não fazer o trabalho por ele.
+
+                    **PRINCÍPIOS FUNDAMENTAIS:**
+                    1.  **Não Rotular:** Evite qualquer linguagem que possa rotular o aluno (ex: "birrento", "fraco", "agressivo", "agitado"). Foque em descrever comportamentos observáveis (ex: "apresentou dificuldade em controlar impulsos", "necessidade de aprimoramento"). 
+                    2.  **Para temas sensíveis (agitação, agressividade, isolamento), a orientação é ainda mais crucial:** em vez de afirmar que "o aluno é agitado", sua sugestão deve ser para que o professor descreva o contexto e a ação. Por exemplo, aponte o trecho e sugira: "Aqui, em vez de classificar o comportamento, procure descrever a situação que o motivou. Exemplo: 'Durante atividades em grupo que exigem espera, foi observado que o aluno se levantou da cadeira repetidas vezes, balançou as mãos e teve dificuldade em aguardar sua vez de falar.'
+                    3.  **Clareza e Objetividade:** As sugestões devem visar um texto claro, direto ao ponto e sem jargões complexos, facilitando a compreensão por parte da família.
+                    4.  **Não utilizar o termo "apesar desses progressos".**
+
+                    ---
+
+                    Analise a ATA sob os seguintes critérios e formate a resposta em Markdown:
+
+                    ### Análise Estrutural e de Conteúdo
+                    - **Origem da Reunião:** Verifique se o primeiro parágrafo informa claramente quem solicitou a reunião (escola, família ou especialista). Se faltar, sugira a adição.
+                    - **Estrutura das Áreas do Conhecimento:** Verifique se a ata aborda de forma agrupada e única as áreas necessárias: linguagem, matemática, educação cósmica (ciências, história e geografia) e interações sociais. As observações sobre essas áreas devem estar concentradas em uma única seção da ata, não espalhadas por vários parágrafos. Se alguma área estiver ausente ou se estiverem repetidas em diferentes partes do texto, aponte a necessidade de centralizar essa análise. 
+                    - **Contexto e Progresso:** A ata precisa conter observações que relacionem o tempo de concentração com a idade da criança, além dos conteúdos e objetivos trabalhados. Verifique se o texto ressalta os avanços individuais, valorizando as conquistas do aluno em relação aos objetivos esperados.
+                    - **Detalhes e Exemplos:** Analise se o texto descreve a rotina do aluno com exemplos práticos, falas e observações detalhadas. Se o texto for muito genérico, sugira a inclusão de exemplos específicos para ilustrar os pontos.
+                    - **Especialmente em descrições de comportamento, verifique se o professor relata a situação em vez de apenas adjetivar o aluno.** Aponte trechos como "O aluno foi agressivo" e sugira uma descrição do fato, como: "Ao ser contrariado durante a brincadeira, o aluno empurrou o colega."
+                    - **Estrutura 'Sanduíche':** Verifique se a ata intercala pontos fortes e áreas de desenvolvimento. A estrutura sugerida é:
+                        1.  **Pontos Fortes:** Habilidades e conhecimentos em destaque.
+                        2.  **Áreas de Desenvolvimento:** Habilidades que precisam de aprimoramento.
+                        3.  **Dificuldades de Aprendizagem:** Desafios específicos no processo.
+                        4.  **Comportamento:** Observações sobre participação, respeito e colaboração. Neste ponto, verifique ativamente se a descrição de comportamentos desafiadores segue o princípio de "descrever a cena" em vez de rotular. A ata deve relatar o que aconteceu, e não apenas classificar a criança.
+
+                    - **Próximos passos:** Para cada área de desenvolvimento ou dificuldade apresentada, verifique se o texto propõe estratégias ou "próximos passos". Se não houver, sugira que o professor adicione as ações que serão implementadas ou discutidas.
+
+                    ### Análise Textual e de Estilo
+                    - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção.
+                    - **Tempo Verbal e Impessoalidade:**
+                        - Verifique se o texto dá preferência à **3ª pessoa**, focando no estudante.
+                        - O **pretérito perfeito (passado)** deve ser usado para descrever atividades, resultados e a evolução do aprendizado.
+                        - O **presente** deve ser usado apenas para informações gerais, fatos científicos ou recomendações.
+                        - Aponte trechos que fogem a essa regra e sugira alternativas. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa como 'foi observado que o aluno participou'".
+                    - **Vocabulário Sugerido:** Verifique se o texto utiliza termos adequados, como:
+                        - **Desempenho:** "progressão", "avanços", "desempenho satisfatório", "necessidade de aprimoramento".
+                        - **Comportamento:** "interação", "participação", "colaboração", "reação a frustrações", "manejo de conflitos". 
+                        - **Habilidades Sociais:** "comportamento", "empatia", "habilidade de trabalhar em grupo".
+                        - **Conclusão:** "recomendações", "orientações", "próximos passos".
+                ` }
+            }
         }
       };
 
@@ -358,9 +340,7 @@ Sugestão de Inclusão: Se o componente de Digital Literacy não for mencionado 
       const auth = getAuth(app);
       const provider = new GoogleAuthProvider();
 
-      let currentProgramId = null;
-      let currentSubgroupId = null;
-      let currentSectorId = null;
+      let navigationHistory = [];
 
       const screens = {
           login: document.getElementById('login-screen'),
@@ -370,120 +350,144 @@ Sugestão de Inclusão: Se o componente de Digital Literacy não for mencionado 
           app: document.getElementById('app-screen')
       };
       
-      function showScreen(screenName) {
+      function showScreen(screenName, historyAction = 'push') {
         Object.values(screens).forEach(screen => screen.classList.add('hidden'));
         screens[screenName].classList.remove('hidden');
+        if (historyAction === 'push' && (navigationHistory.length === 0 || navigationHistory[navigationHistory.length - 1] !== screenName)) {
+            navigationHistory.push(screenName);
+        }
+      }
+
+      function goBack() {
+          if (navigationHistory.length > 1) {
+              navigationHistory.pop();
+              const previousScreen = navigationHistory[navigationHistory.length - 1];
+              showScreen(previousScreen, 'stay');
+          }
       }
 
       onAuthStateChanged(auth, (user) => {
         if (user && user.email.split('@')[1] === SCHOOL_DOMAIN) {
-            document.querySelectorAll('.user-name-display').forEach(span => {
+            document.querySelectorAll('[id^="user-name-"]').forEach(span => {
                 span.textContent = user.displayName || user.email;
             });
             const savedApiKey = localStorage.getItem(`geminiApiKey_${user.uid}`);
             if (savedApiKey) document.getElementById('api-key').value = savedApiKey;
+            navigationHistory = [];
             showScreen('mainSelection');
         } else {
-            if (user) {
-                document.getElementById('login-error').textContent = "Acesso permitido apenas para contas da instituição.";
-                document.getElementById('login-error').classList.remove('hidden');
-                signOut(auth);
-            }
+            if (user) signOut(auth);
             showScreen('login');
         }
       });
       
       document.getElementById('login-button').addEventListener('click', () => {
-          document.getElementById('login-error').classList.add('hidden');
-          signInWithPopup(auth, provider).catch(err => console.error(err));
+        signInWithPopup(auth, provider).catch(error => {
+            console.error("Login Error:", error);
+            document.getElementById('login-error').textContent = "Erro no login. Tente novamente.";
+            document.getElementById('login-error').classList.remove('hidden');
+        });
       });
       
-      document.querySelectorAll('.logout-button').forEach(btn => btn.addEventListener('click', () => signOut(auth)));
+      document.querySelectorAll('[id^="logout-button-"]').forEach(btn => btn.addEventListener('click', () => signOut(auth)));
       
-      document.getElementById('back-to-main').addEventListener('click', () => showScreen('mainSelection'));
-      
-      document.getElementById('back-to-previous-from-sector').addEventListener('click', () => {
-          if (currentSubgroupId) {
-              showSubgroupSelection(currentProgramId);
+      document.getElementById('back-to-main').addEventListener('click', goBack);
+      document.getElementById('back-to-previous').addEventListener('click', goBack);
+      document.getElementById('back-to-sector-selection').addEventListener('click', goBack);
+
+      let currentProgramId = null;
+      let currentSubgroupId = null;
+      let currentSectorId = null;
+
+      function createMainSelectionCards() {
+        const mainCardsContainer = document.getElementById('main-selection-cards');
+        mainCardsContainer.innerHTML = '';
+        for (const programId in programs) {
+            const program = programs[programId];
+            const card = document.createElement('div');
+            card.className = 'card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center';
+            card.innerHTML = `<i class="fa-solid ${program.icon} text-5xl text-green-700 mb-4"></i><h3 class="text-2xl font-bold text-gray-800">${program.title}</h3>`;
+            card.addEventListener('click', () => selectProgram(programId));
+            mainCardsContainer.appendChild(card);
+        }
+      }
+      createMainSelectionCards();
+
+      function selectProgram(programId) {
+          currentProgramId = programId;
+          const program = programs[programId];
+          if (program.subgroups) {
+              showSubgroupSelection(programId);
           } else {
-              showScreen('mainSelection');
+              showSectorSelection(programId);
           }
-      });
-
-      document.getElementById('back-to-sector-selection').addEventListener('click', () => {
-          showSectorSelection(currentProgramId, currentSubgroupId);
-      });
-
-      document.getElementById('program-regular').addEventListener('click', () => showSectorSelection('regular'));
-      document.getElementById('program-international').addEventListener('click', () => showSubgroupSelection('international'));
+      }
 
       function showSubgroupSelection(programId) {
-          currentProgramId = programId;
           const subgroupCards = document.getElementById('subgroup-selection-cards');
           subgroupCards.innerHTML = '';
           const subgroups = programs[programId].subgroups;
           for (const subgroupId in subgroups) {
               const subgroup = subgroups[subgroupId];
               const card = document.createElement('div');
-              card.className = 'card cursor-pointer bg-white p-6 rounded-2xl shadow-md text-center flex flex-col items-center justify-center';
-              card.innerHTML = `<i class="fa-solid ${subgroup.icon} text-4xl text-green-700 mb-4"></i><h3 class="text-lg font-bold text-gray-800">${subgroup.title}</h3>`;
+              card.className = 'card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center';
+              card.innerHTML = `<i class="fa-solid ${subgroup.icon} text-5xl text-green-700 mb-4"></i><h3 class="text-xl font-bold text-gray-800">${subgroup.title}</h3>`;
               card.addEventListener('click', () => showSectorSelection(programId, subgroupId));
               subgroupCards.appendChild(card);
           }
           showScreen('subgroupSelection');
       }
-
+      
       function showSectorSelection(programId, subgroupId = null) {
-          currentProgramId = programId;
           currentSubgroupId = subgroupId;
           const sectorCards = document.getElementById('sector-selection-cards');
           sectorCards.innerHTML = '';
-          
-          const sectors = subgroupId ? programs[programId].subgroups[subgroupId].sectors : programs[programId].sectors;
-          
+          const program = programs[programId];
+          const sectors = subgroupId ? program.subgroups[subgroupId].sectors : program.sectors;
           for (const sectorId in sectors) {
               const sector = sectors[sectorId];
               const card = document.createElement('div');
-              card.className = 'card cursor-pointer bg-white p-6 rounded-2xl shadow-md text-center flex flex-col items-center justify-center';
-              card.innerHTML = `<i class="fa-solid ${sector.icon} text-4xl text-green-700 mb-4"></i><h3 class="text-lg font-bold text-gray-800">${sector.title}</h3>`;
-              card.addEventListener('click', () => selectFinalSector(sectorId));
+              card.className = 'card cursor-pointer bg-white p-8 rounded-2xl shadow-md text-center';
+              card.innerHTML = `<i class="fa-solid ${sector.icon} text-5xl text-green-700 mb-4"></i><h3 class="text-xl font-bold text-gray-800">${sector.title}</h3>`;
+              card.addEventListener('click', () => selectSector(sectorId));
               sectorCards.appendChild(card);
           }
           showScreen('sectorSelection');
       }
 
-      function selectFinalSector(sectorId) {
+      function selectSector(sectorId) {
           currentSectorId = sectorId;
-          const sectorData = currentSubgroupId 
-              ? programs[currentProgramId].subgroups[currentSubgroupId].sectors[sectorId]
-              : programs[currentProgramId].sectors[sectorId];
-          document.getElementById('sector-title').textContent = sectorData.title;
+          const program = programs[currentProgramId];
+          const sector = currentSubgroupId 
+              ? program.subgroups[currentSubgroupId].sectors[sectorId]
+              : program.sectors[sectorId];
+          document.getElementById('sector-title').textContent = sector.title;
           showScreen('app');
       }
       
       function getPromptForSector(programId, subgroupId, sectorId, text) {
-          const basePrompt = `
-              Você é um assistente para professores. Analise o seguinte relatório de um aluno e forneça sugestões construtivas.
-                    Sua análise deve focar nos seguintes pontos:
-                    1. **Ortografia e Gramática:** Identifique e corrija quaisquer erros.
-                    2. **Pontuação:** Verifique o uso correto de vírgulas, pontos finais, etc.
-                    3. **Tempos Verbais:** Garanta a consistência e o uso adequado dos tempos verbais.
-                    4. **Clareza e Coerência:** Sugira melhorias para tornar o texto mais claro e coeso.
-                    5. **Sugestões Positivas:** Ofereça feedback construtivo e sugestões para enriquecer o relatório.
-                    Formate a sua resposta usando Markdown. Use títulos para cada seção (ex: ### Ortografia e Gramática).
-             `
-          let specificPrompt = 'Contexto geral...';
-          try {
-              if (subgroupId) {
-                  specificPrompt = programs[programId].subgroups[subgroupId].sectors[sectorId].prompt;
-              } else {
-                  specificPrompt = programs[programId].sectors[sectorId].prompt;
-              }
-          } catch (e) {
-              console.warn("Prompt não encontrado para a seleção, usando prompt geral.", e);
-          }
-          
-          return `${basePrompt} ${specificPrompt || 'Contexto geral...'} \n\n --- \n Texto para análise: \n ${text} \n ---`;
+        const basePrompt = `
+            Você é um assistente pedagógico especializado em revisar documentos escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+            REGRAS GERAIS IMPORTANTES:
+            1.  **Sugestões Pontuais:** Aponte o trecho e sugira a correção ou melhoria. Não reescreva o texto.
+            2.  **Repetição de Palavras:** Se notar palavras repetidas em um curto espaço, sugira sinônimos ou formas de reescrever a frase para evitar a repetição.
+            3.  **Língua Estrangeira:** Palavras em outras línguas (como inglês) são comuns e NÃO precisam ser colocadas em itálico. Não faça essa sugestão.
+            4.  **Não Rotular:** Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+            Analise o relatório sob os seguintes critérios específicos para o setor e formate a resposta em Markdown:
+        `;
+        
+        let specificPrompt = 'Contexto geral. Por favor, adicione um prompt específico para este setor.';
+        
+        const program = programs[programId];
+        if (program) {
+            if (program.subgroups && subgroupId && program.subgroups[subgroupId] && program.subgroups[subgroupId].sectors[sectorId]) {
+                specificPrompt = program.subgroups[subgroupId].sectors[sectorId].prompt;
+            } else if (program.sectors && program.sectors[sectorId]) {
+                specificPrompt = program.sectors[sectorId].prompt;
+            }
+        }
+
+        return `${basePrompt} \n\n --- \n ${specificPrompt} \n\n --- \n Texto para análise: \n ${text} \n ---`;
       }
       
       document.getElementById('analyze-button').addEventListener('click', async () => {
@@ -549,14 +553,4 @@ Sugestão de Inclusão: Se o componente de Digital Literacy não for mencionado 
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
