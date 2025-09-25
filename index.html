@@ -233,7 +233,9 @@ Analise a ATA sob os seguintes critérios e formate a resposta em Markdown:
               title: "Currículo de inglês",
               icon: "fa-language",
               sectors: {
-                bercario3infantil: { title: "Berçário 3 e Infantil regular", icon: "fa-child", prompt: `PROMPT PARA BERCÁRIO 3 E INFANTIL REGULAR` },
+                bercario3infantil: { title: "Berçário 3 e Infantil regular", 
+									icon: "fa-child", 
+									prompt: `PROMPT PARA BERCÁRIO 3 E INFANTIL REGULAR` },
                 anos1e2: { title: "1º e 2º ano", 
 						  icon: "fa-pencil", 
 						  prompt: `Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
@@ -259,7 +261,33 @@ Habilidades de Produção (escrita e fala): Quando o professor descrever a habil
             Texto para análise:`,
 
 `},
-                anos3a5: { title: "3º a 5º ano - Digital Literacy", icon: "fa-laptop-code", prompt: `PROMPT PARA 3º A 5º ANO` },
+                anos3a5: { title: "3º a 5º ano - Digital Literacy", 
+						   icon: "fa-laptop-code",
+						   prompt: `  Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+                        Contexto do aluno: Cursa a disciplina de inglês como língua adicional no 3º, 4º ou 5º ano do ensino fundamental anos iniciais. A disciplina também engloba aulas de Digital Literacy, parte de um currículo internacional, em língua inglesa.  
+                        PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+                        Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                        ### Análise Textual e Normativa
+                        - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
+                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, aponte e sugira a alteração. Exemplo: "No trecho 'eu percebo que ele participa', sugira uma alternativa impessoal e no passado, como 'foi observado que o aluno participou'".
+                        - **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+                        - **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e sugira sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+                        ### Análise Estrutural e Pedagógica
+                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Sugestão: inicie com um aspecto positivo, como o bom relacionamento com os colegas."
+ - **Pontos de Desenvolvimento:**Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+                1. Cita um **exemplo prático** que justifique a observação.
+                2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+         	   - Se um desses requisitos faltar, aponte de forma específica. Exemplo: "O texto menciona que o aluno tem dificuldade em 'compreensão oral'. Sugestão: adicione um exemplo prático, como 'durante a atividade de escuta do livro didático', e a ação pedagógica, como 'foi incentivado a reler a pergunta e buscar palavras-chave durante a atividade para auxiliar na compreensão do áudio'.
+		-**Análise da Aquisição da Língua Inglesa:**Clareza na Comunicação das Habilidades: O relatório deve ser claro para os pais, evitando jargões pedagógicos. Verifique se, ao mencionar as quatro habilidades linguísticas, o texto oferece clareza e exemplos, separando as habilidades receptivas das habilidades de produção. 
+Habilidades Receptivas (escuta e leitura): Quando o professor descrever a habilidade de escuta (listening) ou leitura (reading), a observação deve ser acompanhada de um exemplo prático que a ilustre. Exemplo: "Demonstra boa compreensão auditiva ao seguir comandos como 'open your book to page ten'". Se o texto mencionar a habilidade de forma genérica e sem exemplos, sugira a inclusão de uma situação concreta.
+Habilidades de Produção (escrita e fala): Quando o professor descrever a habilidade de escrita (writing) ou fala (speaking), a observação também deve ser apoiada por um exemplo claro. Exemplo: "Consegue se expressar oralmente, formando frases simples como 'My favorite color is blue'". Se a descrição for ambígua ou sem um exemplo prático, aponte a necessidade de adicionar um para evitar falta de clareza.
+-**Análise de Digital Literacy:**Verificação do Componente. Verifique se há menção ao desenvolvimento de habilidades digitais, como o uso de ferramentas específicas (softwares, plataformas), segurança e bem-estar e noções de cidadania digital.
+Exemplos Práticos: As observações precisam ser ilustradas com exemplos concretos do desempenho do aluno. Por exemplo: "o aluno demonstrou saber como criar senhas seguras e fáceis de lembrar e entendeu a necessidade disso" ou "o aluno usou palavras-chave para buscar por informações em uma ferramenta de busca".
+Sugestão de Inclusão: Se o componente de Digital Literacy não for mencionado no relatório, aponte a ausência e sugira a inclusão de um parágrafo que detalhe o progresso e a participação do aluno nessas aulas específicas.
+
+            ---
+            Texto para análise:`,
+ ` },
               }
             },
             cambridge: {
@@ -521,6 +549,7 @@ Habilidades de Produção (escrita e fala): Quando o professor descrever a habil
     </script>
 </body>
 </html>
+
 
 
 
