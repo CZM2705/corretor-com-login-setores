@@ -411,6 +411,7 @@
                                 Contexto do aluno: Cursa os anos finais do ensino fundamental em um currículo internacional, com aulas de ciências, matemática e perspectivas globais em língua inglesa.
                                 PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
                                 Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+                              
                                 ### Análise Textual e Normativa
                                 - **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
                                 - **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e sugira a correção. Exemplo: "No trecho 'o aluno demostrou', sugira 'demonstrou'".
@@ -460,7 +461,50 @@
                     title: "Atividades Extras",
                     sectors: {
                         robotica: { title: "Robótica", icon: "fa-robot", prompt: `PROMPT_ROBOTICA_AQUI` },
-                        gastronomia: { title: "Gastronomia", icon: "fa-utensils", prompt: `PROMPT_GASTRONOMIA_AQUI` }
+                        gastronomia: { 
+                            title: "Gastronomia", 
+                            icon: "fa-utensils", 
+                            prompt: `
+Você é um assistente pedagógico especializado em análise de relatórios escolares. Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo, sem reescrever frases ou parágrafos inteiros. O objetivo é guiar o professor, não fazer o trabalho por ele.
+Contexto do aluno: Cursa aulas de gastronomia integral no contraturno. (faixa etária da Educação Infantil ao Fundamental Anos Finais).
+
+PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o aluno (ex: 'ele é desatento'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou dificuldade em manter o foco durante a explicação').
+
+Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+
+### Análise Textual e Normativa
+- **Consistência do Nome do Aluno:** Ao longo da análise, verifique se o nome do aluno é mencionado de forma consistente. Se notar o uso de nomes diferentes para se referir à mesma criança, aponte a inconsistência para garantir a clareza do documento.
+- **Norma Culta e Pontuação:** Aponte trechos com possíveis desvios ortográficos, gramaticais ou de pontuação e ofereça diretamente a correção. Exemplo: "No trecho 'o aluno demostrou', a forma correta é 'demonstrou'".
+- **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos predominantemente no passado e em formato impessoal. Se encontrar desvios, ofereça uma alternativa. Exemplo: "Para o trecho 'eu percebo que ele participa', uma alternativa impessoal e no passado seria 'foi observado que o aluno participou'".
+- **Não Usar Itálico em Estrangeirismos:** Palavras em língua estrangeira são comuns no contexto da escola. NÃO sugira colocá-las em itálico. Apenas verifique a grafia correta.
+- **Repetição de Palavras:** Identifique palavras ou termos repetidos em proximidade e ofereça sinônimos ou formas alternativas de reescrever a frase para melhorar a fluidez do texto.
+
+### Análise Estrutural e Pedagógica
+- **Estrutura 'Sanduíche':** Verifique se o relatório intercala pontos positivos e de desenvolvimento. Se a estrutura não estiver clara, aponte. Exemplo: "A seção sobre o comportamento parece focar apenas em pontos de desenvolvimento. Uma alternativa seria iniciar com um aspecto positivo, como o bom relacionamento com os colegas."
+- **Pontos de Desenvolvimento:** Para cada ponto que indique uma dificuldade do aluno, verifique se o texto cumpre DOIS requisitos:
+    1. Cita um **exemplo prático** que justifique a observação.
+    2. Descreve a **ação do professor** para incentivar o desenvolvimento.
+- Se um desses requisitos faltar, ofereça um exemplo de como o trecho poderia ser enriquecido. 
+
+### Análise do Desenvolvimento em Gastronomia
+  - **Organização e Responsabilidade:** Verifique se o relatório descreve a autonomia do aluno em relação ao ambiente e aos materiais. O texto menciona:
+  - **Organização do Espaço:** A capacidade de preparar a sua área de trabalho antes de iniciar a receita?
+  - **Pró-atividade na Limpeza:** A iniciativa de participar da limpeza e organização do ambiente após a aula?
+  - **Zelo com Materiais:** O cuidado demonstrado com os utensílios e ingredientes?
+  - **Sugestão de Ação:** Se um desses pontos estiver ausente, ofereça um exemplo de como incluí-lo: "Para detalhar a organização, uma alternativa seria: 'Demonstrou autonomia ao separar os ingredientes necessários e ao manter sua bancada organizada durante o preparo'."
+
+  - **Trabalho em Grupo:** Analise se o relatório descreve a capacidade do aluno de colaborar com os colegas. O texto aborda:
+    *A participação na divisão de tarefas?
+    *A comunicação com o grupo para atingir um objetivo comum?
+    *O respeito pelas ideias e pelo espaço dos colegas?
+  - **Sugestão de Ação:** Para dificuldades na colaboração, verifique se o professor descreve a estratégia. Se não, ofereça um exemplo: "Ao descrever o trabalho em grupo, uma forma de apresentar a estratégia seria: 'Para incentivar a colaboração, foram designados papéis específicos na equipe, e o aluno foi orientado a...'."
+  
+  - **Exploração Sensorial (Texturas e Sabores):** Verifique se o relatório descreve a relação do aluno com os alimentos. O texto menciona:
+    *A disposição para provar o alimento preparado?
+    *A curiosidade em experimentar novos sabores e texturas?
+    *A capacidade de descrever sensações simples (doce, salgado, crocante, macio)?
+  - **Sugestão de Ação:** Para desafios como a seletividade alimentar, o texto descreve a abordagem pedagógica? Se faltar, ofereça uma alternativa: "Ao abordar a experimentação, uma forma de descrever a estratégia seria: 'Foi incentivado a provar o novo ingrediente através de uma apresentação lúdica, e descreveu sua percepção como...'".
+ ` }
                     }
                 }
               ]
@@ -783,6 +827,7 @@
     </script>
 </body>
 </html>
+
 
 
 
