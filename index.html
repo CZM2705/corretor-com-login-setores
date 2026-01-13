@@ -124,20 +124,30 @@
     </div>
     
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-      import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { 
+    getAuth, 
+    GoogleAuthProvider, 
+    signInWithRedirect, 
+    getRedirectResult, 
+    onAuthStateChanged, 
+    signOut 
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-      // --- CONFIGURAÇÃO ---
-      const firebaseConfig = {
-        apiKey: "AIzaSyCHlvNnopglq7Y8glXo8rUYU-Hn1lR7YTk",
-        authDomain: "corretor-com-login-fafbilingue.firebaseapp.com",
-        projectId: "corretor-com-login-fafbilingue",
-        storageBucket: "corretor-com-login-fafbilingue.firebasestorage.app",
-        messagingSenderId: "724149401323",
-        appId: "1:724149401323:web:fdf14d941e5cc84db2b0ae"
-      };
+         const firebaseConfig = {
+    apiKey: "AIzaSyCHlvNnopglq7Y8glXo8rUYU-Hn1lR7YTk",
+    authDomain: "corretor-com-login-fafbilingue.firebaseapp.com",
+    projectId: "corretor-com-login-fafbilingue",
+    storageBucket: "corretor-com-login-fafbilingue.firebasestorage.app",
+    messagingSenderId: "724149401323",
+    appId: "1:724149401323:web:fdf14d941e5cc84db2b0ae"
+  };
+
+ const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
       const SCHOOL_DOMAIN = "ursulinebrazil.com";
-
+        
       // --- ESTRUTURA DOS SETORES E PROMPTS ---
       const programs = {
         regular: {
@@ -1339,6 +1349,7 @@ Analise o relatório sob os seguintes critérios e formate a resposta em Markdow
     </script>
 </body>
 </html>
+
 
 
 
