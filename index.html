@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -176,13 +176,67 @@
                     bercario2: {
                         title: "Berçário 2",
                         icon: "fa-baby",
-                        prompt: `Você é um assistente pedagógico especializado em análise de relatórios escolares para o Berçário 2 (1 a 2 anos). Sua tarefa é analisar o texto e fornecer sugestões de melhoria. PRINCÍPIO FUNDAMENTAL: Não rotule a criança. Descreva comportamentos. Analise sob os critérios: ### Análise Textual - **Consistência do Nome.** - **Norma Culta e Gramática.** - **Vocabulário Pedagógico.** ### Análise do Desenvolvimento (12 a 24 meses) - **Marcha e Motricidade:** Como a criança se desloca e interage com obstáculos. - **Interação Social:** Como brinca com os pares (brincar paralelo) e adultos. - **Linguagem:** Uso de gestos, sons ou palavras para expressar desejos. - **Autonomia:** Início da alimentação com autonomia e participação na rotina de higiene.`
+                        prompt: `Você é um assistente pedagógico especializado em análise de relatórios escolares para o Berçário 2 (1 a 2 anos). 
+                        Sua tarefa é analisar o texto e fornecer sugestões de melhoria. 
+                        
+                        PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o bebê (ex: 'ele é chorão' ou 'preguiçoso'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou necessidade de acolhimento constante' ou 'ainda não demonstra iniciativa para engatinhar, preferindo ficar sentado'). 
+                        Analise o relatório sob os seguintes critérios e formate a resposta em Markdown: 
+                        
+                        ### Análise Textual e Normativa 
+                        - **Consistência do Nome do Aluno:** Verifique se o nome é mencionado de forma consistente. 
+                        - **Norma Culta e Pontuação:** Aponte desvios e ofereça a correção. 
+                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos no passado e em formato impessoal (observou-se, notou-se). 
+                        - **Repetição de Palavras:** Identifique repetições e ofereça sinônimos. 
+                        
+                        ### Análise Estrutural e Pedagógica 
+                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala marcos alcançados com pontos que ainda precisam de estímulo. 
+                        - **Pontos de Atenção:** Se o relatório citar alguma dificuldade (ex: adaptação difícil, recusa alimentar), verifique se descreve a ação do professor/escola. 
+                        
+                        ### Análise do Desenvolvimento (12 a 24 meses) 
+                        - **Marcha e Motricidade:** Como a criança se desloca e interage com obstáculos. 
+                        - **Interação Social:** Como brinca com os pares (brincar paralelo) e adultos. 
+                        - **Linguagem:** Uso de gestos, sons ou palavras para expressar desejos. 
+                        - **Autonomia:** Início da alimentação com autonomia e participação na rotina de higiene.
+                        
+                        ### Análise da Rotina de Cuidados 
+                        - **Alimentação:** Descreve a aceitação da mamadeira ou sólidos? 
+                        - **Sono e Repouso:** Aborda a qualidade do sono? 
+                        - **Higiene:** Menciona a tranquilidade durante as trocas?`
                     },
+                    
                     bercario3: {
                         title: "Berçário 3",
                         icon: "fa-child-reaching",
-                        prompt: `Você é um assistente pedagógico especializado em relatórios para o Berçário 3 (2 a 3 anos). Foque na transição para a autonomia consciente e o início do brincar simbólico. ### Critérios de Análise: - **Identidade:** Reconhecimento de si e dos outros. - **Expressão Oral:** Formação de frases e expressão de necessidades. - **Desfralde:** Se o texto aborda o processo de forma acolhedora. - **Conflitos:** Como a criança lida com a partilha de brinquedos e mediação.`
+                        prompt: `Você é um assistente pedagógico especializado em relatórios para o Berçário 3 (2 a 3 anos).
+                        Contexto: Crianças de 2 a 3 anos (fase de afirmação de identidade e ampliação da linguagem).
+
+                        PRINCÍPIO FUNDAMENTAL: Evite rotular comportamentos de negação ("birra") como negativos. Trate como "fase de autoafirmação" ou "construção de identidade".
+
+                        Analise o relatório sob os seguintes critérios e formate em Markdown:
+
+                         ### Análise Textual e Normativa 
+                        - **Consistência do Nome do Aluno:** Verifique se o nome é mencionado de forma consistente. 
+                        - **Norma Culta e Pontuação:** Aponte desvios e ofereça a correção. 
+                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos no passado e em formato impessoal (observou-se, notou-se). 
+                        - **Repetição de Palavras:** Identifique repetições e ofereça sinônimos. 
+                        
+                        ### Análise Estrutural e Pedagógica 
+                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala marcos alcançados com pontos que ainda precisam de estímulo. 
+                        - **Pontos de Atenção:** Se o relatório citar alguma dificuldade (ex: adaptação difícil, recusa alimentar), verifique se descreve a ação do professor/escola. 
+
+                        ### Análise do Desenvolvimento (2 a 3 anos)
+                        - **Linguagem e Narrativa:** A criança já forma pequenas frases? Consegue relatar fatos simples do cotidiano? O relatório traz exemplos da fala da criança?
+                        - **Brincar Simbólico (Faz de Conta):** O texto descreve se a criança brinca de "casinha", "comidinha" ou assume papéis? Isso é crucial nessa idade.
+                        - **Socialização e Conflitos:** Início da interação real com o outro. Como lida com a partilha?
+                        - *Dica:* Se citar mordidas ou empurrões, deve OBRIGATORIAMENTE citar a intervenção pedagógica (conversa, acolhimento).
+
+                        ### Análise da Rotina e Autonomia
+                        - **Controle de Esfíncteres (Desfralde):** Se a criança estiver no processo, o relatório descreve os avanços e escapes de forma natural e respeitosa?
+                        - *Sugestão:* "Para abordar escapes, use: 'Encontra-se em processo de desfralde, sendo incentivado a usar o banheiro, e os escapes eventuais são tratados com naturalidade'."
+                        - **Alimentação:** Come sozinha? Mantém-se sentada?
+                        - **Autonomia:** Tenta calçar sapatos ou guardar a própria mochila? Reconhece seus pertences?`
                     },
+                    
                     infantil1: {
                         title: "Infantil 1",
                         icon: "fa-shapes",
@@ -1256,6 +1310,7 @@
     </script>
 </body>
 </html>
+
 
 
 
