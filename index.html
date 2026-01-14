@@ -245,14 +245,114 @@
                     infantil1: {
                         title: "Infantil 1",
                         icon: "fa-shapes",
-                        prompt: `Você é um assistente pedagógico para o Infantil 1 (3 a 4 anos). Analise o relatório focando na inserção no grupo e nas habilidades pré-acadêmicas. ### Critérios: - **Socialização:** Participação em atividades coletivas e rodas de conversa. - **Motricidade Fina:** Garatujas, manuseio de pincéis e massinha. - **Linguagem:** Relato de vivências e ampliação do vocabulário. - **Autonomia:** Cuidado com os próprios pertences e alimentação.`
+                        prompt: `Você é um assistente pedagógico especializado em relatórios para o Infantil 1 (3 a 4 anos).
+Contexto: Crianças de 3 a 4 anos.
+
+PRINCÍPIO FUNDAMENTAL: Evite rotular. Foque na evolução da socialização (sair do brincar isolado para o brincar junto) e na conquista da autonomia.
+
+Analise o relatório sob os seguintes critérios e formate em Markdown:
+
+ ### Análise Textual e Normativa 
+                        - **Consistência do Nome do Aluno:** Verifique se o nome é mencionado de forma consistente. 
+                        - **Norma Culta e Pontuação:** Aponte desvios e ofereça a correção. 
+                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos no passado e em formato impessoal (observou-se, notou-se). 
+                        - **Repetição de Palavras:** Identifique repetições e ofereça sinônimos. 
+                        
+                        ### Análise Estrutural e Pedagógica 
+                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala marcos alcançados com pontos que ainda precisam de estímulo. 
+                        - **Pontos de Atenção:** Se o relatório citar alguma dificuldade (ex: adaptação difícil, recusa alimentar), verifique se descreve a ação do professor/escola. 
+                        - **Abrangência das Áreas:** Confirme se o texto aborda todas as áreas do conhecimento necessárias: linguagem, matemática, educação cósmica contemplando ciências, história e geografia, interações sociais, educação nutricional, arte e projetos. Se alguma área estiver ausente, aponte qual.
+                        - **Na finalização do relatório, sugira que contenha fatos relevantes e uma conclusão de como foi o trimestre.**
+
+### Análise do Desenvolvimento (3 a 4 anos)
+- **Socialização:** A criança já brinca *com* os colegas (compartilha, cria enredos juntos)? Ou ainda observa?
+    - *Atenção:* Conflitos físicos diminuem, mas disputas verbais aumentam. O texto descreve a mediação?
+- **Linguagem:** O vocabulário expandiu? Consegue narrar uma pequena história com começo, meio e fim?
+- **Pedagógico/Motor:**
+    - **Desenho:** Fase da "garatuja controlada" ou início do desenho figurativo (cabeça com pernas)?
+    - **Recorte:** Uso da tesoura (ainda aprendendo o movimento de abrir/fechar).
+    - **Matemática:** Noção de "muito/pouco", contagem oral simples.
+
+### Análise da Rotina e Autonomia
+- **Higiene:** Já realiza o uso do banheiro com autonomia? Lava as mãos sozinho?
+- **Alimentação:** Comporta-se à mesa? Usa os talheres adequadamente?
+- **Pertences:** Reconhece e cuida dos seus materiais?`
                     },
        
-                    infantil2: { title: "Infantil 2 (4-5 anos)", icon: "fa-pencil", 
-                                prompt:  ` teste `},
+                    infantil2: { title: "Infantil 2", icon: "fa-pencil", 
+                                prompt:  ` Você é um assistente pedagógico especializado em relatórios para o Infantil 2 (4 a 5 anos).
+Contexto: Crianças de 4 a 5 anos (Pré-alfabetização).
+
+PRINCÍPIO FUNDAMENTAL: Valorize as hipóteses da criança. Evite focar no "erro" e sim no processo de construção do conhecimento.
+
+Analise o relatório sob os seguintes critérios e formate em Markdown:
+
+### Análise Textual e Normativa 
+                        - **Consistência do Nome do Aluno:** Verifique se o nome é mencionado de forma consistente. 
+                        - **Norma Culta e Pontuação:** Aponte desvios e ofereça a correção. 
+                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos no passado e em formato impessoal (observou-se, notou-se). 
+                        - **Repetição de Palavras:** Identifique repetições e ofereça sinônimos. 
+                        
+                        ### Análise Estrutural e Pedagógica 
+                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala marcos alcançados com pontos que ainda precisam de estímulo. 
+                        - **Pontos de Atenção:** Se o relatório citar alguma dificuldade (ex: adaptação difícil, recusa alimentar), verifique se descreve a ação do professor/escola. 
+                        - **Abrangência das Áreas:** Confirme se o texto aborda todas as áreas do conhecimento necessárias: linguagem, matemática, educação cósmica contemplando ciências, história e geografia, interações sociais, educação nutricional, arte e projetos. Se alguma área estiver ausente, aponte qual.
+                        - **Na finalização do relatório, sugira que contenha fatos relevantes e uma conclusão de como foi o trimestre.**
+
+### Análise do Desenvolvimento (4 a 5 anos)
+- **Pedagógico (Linguagem):**
+    - **Consciência Fonológica:** Reconhece rimas? Sons iniciais?
+    - **Escrita do Nome:** Já escreve o nome (ou tenta)? Reconhece as letras?
+    - **Desenho:** Desenho mais elaborado, com detalhes e cenário.
+- **Pedagógico (Matemática):**
+    - Contagem termo a termo (contar objetos um a um).
+    - Classificação e seriação (agrupar por cor/tamanho).
+- **Socialização:**
+    - Participa de jogos com regras? Aceita perder/esperar a vez?
+    - Resolve conflitos através do diálogo?
+
+### Análise da Rotina
+- **Autonomia Total:** Espera-se que a criança já tenha autonomia no banheiro, refeições e organização da mochila. O relatório aponta se há alguma dificuldade nisso?
+- **Atenção e Foco:** Consegue manter o foco em uma atividade dirigida por mais tempo (15-20 min)? `
+                               },
                     
-            infantil3: { title: "Infantil 3 (5-6 anos)", icon: "fa-book-open", 
-                        prompt: ` teste `
+            infantil3: { title: "Infantil 3", icon: "fa-book-open", 
+                        prompt: ` Você é um assistente pedagógico especializado em relatórios para o Infantil 3 (5 a 6 anos).
+Contexto: Crianças de 5 a 6 anos (Fase de transição para o Ensino Fundamental).
+
+PRINCÍPIO FUNDAMENTAL: O foco é a prontidão para a alfabetização e a autonomia. Evite rotular. Descreva as hipóteses de escrita e o raciocínio lógico da criança.
+
+Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
+
+### Análise Textual e Normativa 
+                        - **Consistência do Nome do Aluno:** Verifique se o nome é mencionado de forma consistente. 
+                        - **Norma Culta e Pontuação:** Aponte desvios e ofereça a correção. 
+                        - **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos no passado e em formato impessoal (observou-se, notou-se). 
+                        - **Repetição de Palavras:** Identifique repetições e ofereça sinônimos. 
+                        
+                        ### Análise Estrutural e Pedagógica 
+                        - **Estrutura 'Sanduíche':** Verifique se o relatório intercala marcos alcançados com pontos que ainda precisam de estímulo. 
+                        - **Pontos de Atenção:** Se o relatório citar alguma dificuldade (ex: adaptação difícil, recusa alimentar), verifique se descreve a ação do professor/escola. 
+                        - **Abrangência das Áreas:** Confirme se o texto aborda todas as áreas do conhecimento necessárias: linguagem, matemática, educação cósmica contemplando ciências, história e geografia, interações sociais, educação nutricional, arte e projetos. Se alguma área estiver ausente, aponte qual.
+                        - **Na finalização do relatório, sugira que contenha fatos relevantes e uma conclusão de como foi o trimestre.**
+
+### Análise do Desenvolvimento (5 a 6 anos)
+- **Letramento e Linguagem:**
+    - **Hipótese de Escrita:** O relatório descreve em qual hipótese a criança se encontra (pré-silábica, silábica, alfabética)? Isso é essencial.
+    - **Consciência Fonológica:** Identifica rimas, aliterações e separa sílabas oralmente?
+    - **Nome Próprio:** Escreve o nome completo sem apoio?
+- **Raciocínio Lógico-Matemático:**
+    - Realiza contagem sequencial? Relaciona número à quantidade?
+    - Resolve situações-problema simples (ex: somar objetos)?
+    - Identifica formas geométricas e sequências lógicas?
+- **Desenvolvimento Social e Emocional:**
+    - **Regras:** Respeita regras complexas em jogos coletivos? Sabe ganhar e perder?
+    - **Conflitos:** Resolve desentendimentos através do diálogo e argumentação?
+    - **Atenção:** Mantém o foco e termina as atividades propostas?
+
+### Análise da Rotina e Autonomia
+- **Autonomia Total:** Cuida de seus pertences, veste-se, usa o banheiro e alimenta-se com total independência e postura adequada?
+- **Coordenação Motora Fina:** Como é a pega no lápis? O recorte é preciso sobre a linha? O traçado das letras é legível? `
                 },
             },
             },
@@ -1322,6 +1422,7 @@
     </script>
 </body>
 </html>
+
 
 
 
