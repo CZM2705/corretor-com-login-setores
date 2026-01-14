@@ -144,37 +144,14 @@
           title: "Regular",
           icon: "fa-graduation-cap",
           sectors: {
-            bercario1: { title: "Berçário 1 (0-1 ano)", icon: "fa-baby-carriage", 
-                        prompt: `Você é um assistente pedagógico especializado em análise de relatórios escolares para o Berçário (3 a 12 meses). Sua tarefa é analisar o texto a seguir e fornecer SUGESTÕES PONTUAIS para melhorá-lo.
-Contexto do aluno: Cursa o Berçário 1 (faixa etária de 3 a 12 meses).
-
-PRINCÍPIO FUNDAMENTAL: Em todas as suas sugestões, evite qualquer linguagem que possa rotular o bebê (ex: 'ele é chorão' ou 'preguiçoso'). Em vez disso, foque em descrever comportamentos observáveis (ex: 'apresentou necessidade de acolhimento constante' ou 'ainda não demonstra iniciativa para engatinhar, preferindo ficar sentado').
-
-Analise o relatório sob os seguintes critérios e formate a resposta em Markdown:
-
-### Análise Textual e Normativa
-- **Consistência do Nome do Aluno:** Verifique se o nome é mencionado de forma consistente.
-- **Norma Culta e Pontuação:** Aponte desvios e ofereça a correção. Ex: "No trecho 'o bebê demostrou', a forma correta é 'demonstrou'".
-- **Tempo Verbal e Impessoalidade:** Verifique se o texto usa verbos no passado e em formato impessoal (observou-se, notou-se).
-- **Repetição de Palavras:** Identifique repetições e ofereça sinônimos.
-
-### Análise Estrutural e Pedagógica
-- **Estrutura 'Sanduíche':** Verifique se o relatório intercala marcos alcançados com pontos que ainda precisam de estímulo.
-- **Pontos de Atenção:** Se o relatório citar alguma dificuldade (ex: adaptação difícil, recusa alimentar), verifique se descreve a **ação do professor/escola** (colo, música, persistência gentil). Se faltar, sugira incluir a estratégia.
-
-### Análise do Desenvolvimento Infantil (3 a 12 meses)
-*O foco aqui não é alfabetização, mas sim marcos motores e sensoriais.*
-- **Desenvolvimento Social e Emocional (Vínculo):** O texto descreve a adaptação e o vínculo com as educadoras? Descreve a interação com outros bebês (olhar, tocar)? Se faltar, sugira: *"Para descrever o vínculo, uma alternativa seria: 'O aluno demonstra segurança no colo da educadora e responde com sorrisos às interações'."*
-- **Desenvolvimento Motor (Marcos do Movimento):** O relatório cita os marcos esperados para a idade (sustentar a cabeça, rolar, sentar sem apoio, arrastar-se, engatinhar ou ficar em pé)? Observa a motricidade fina (pegar objetos, movimento de pinça)? Se ausente, sugira incluir quais movimentos o bebê já realiza.
-- **Estimulação Sensorial e Cognitiva:** O texto relata como o bebê reage a estímulos (músicas, texturas, espelho, cores)? Menciona a oralidade inicial (balbucios, gritinhos, risadas)?
-
-### Análise da Rotina de Cuidados (Integral)
-- **Alimentação (Lactância/Introdução Alimentar):** Descreve a aceitação da mamadeira ou das primeiras papinhas/sólidos? Se houver recusa, a escola descreve como atuou? Ex: *"Para descrever a introdução alimentar, poderia dizer: 'Iniciou a degustação de frutas, demonstrando curiosidade ao tocar e levar o alimento à boca'."*
-- **Sono e Repouso:** Aborda a qualidade do sono (sonecas curtas/longas)? Menciona se precisa de auxílio para adormecer (ninar, objeto de transição)?
-- **Higiene:** Menciona a tranquilidade durante as trocas de fralda ou banho, momentos importantes de vínculo nessa idade.
-`},      
+    bercario1: { title: "Berçário 1", icon: "fa-baby-carriage", prompt: promptBercario1 },
+    bercario2: { title: "Berçário 2", icon: "fa-baby", prompt: promptBercario2 },
+    bercario3: { title: "Berçário 3", icon: "fa-child-reaching", prompt: promptBercario3 },
+    infantil: { title: "Infantil 1", icon: "fa-shapes", prompt: `PROMPT_INFANTIL_AQUI` }, 
+    infantil2: { title: "Infantil 2", icon: "fa-pencil", prompt: promptInfantil2 },
+    infantil3: { title: "Infantil 3", icon: "fa-book-open", prompt: },
+  }
           }
-        },
         international: {
           title: "Educação Internacional e Integral Bilíngue",
           icon: "fa-earth-americas",
@@ -1177,6 +1154,7 @@ Analise o relatório sob os seguintes critérios e formate a resposta em Markdow
     </script>
 </body>
 </html>
+
 
 
 
