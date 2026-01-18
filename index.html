@@ -1390,19 +1390,38 @@ Analise o relatório sob os seguintes critérios e formate a resposta em Markdow
         }
       });
 
-      async function callGemini(prompt, apiKey) {
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`; 
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }] })
-        });
-        if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
-        const result = await response.json();
-        if (result.candidates && result.candidates.length > 0) return result.candidates[0].content.parts[0].text;
-        throw new Error("Resposta inválida da API do Gemini.");
-      }
+    async function callGemini(prompt, apiKey) {
+    // Usando crases (backticks) para a URL
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`; 
 
+    const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({ 
+            contents: [
+                { 
+                    parts: [{ text: prompt }] 
+                }
+            ] 
+        })
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Erro detalhado da API:", errorData);
+        throw new Error(`Erro na API: ${response.status} - ${errorData.error?.message || 'Falha desconhecida'}`);
+    }
+
+    const result = await response.json();
+    
+    if (result.candidates && result.candidates[0].content && result.candidates[0].content.parts) {
+        return result.candidates[0].content.parts[0].text;
+    }
+    
+    throw new Error("A API retornou um formato inesperado.");
+}
       function basicMarkdownToHtml(md) {
         md = md.replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mb-2 mt-4">$1</h3>');
         md = md.replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mb-3 mt-5">$1</h2>');
@@ -1422,6 +1441,7 @@ Analise o relatório sob os seguintes critérios e formate a resposta em Markdow
     </script>
 </body>
 </html>
+
 
 
 
